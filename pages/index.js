@@ -15,8 +15,8 @@ export default function Home() {
   return (
     <div style={{backgroundColor:"#ffff"}}>
       <Head>
-        <title>Divyam Chandak Dixit</title>
-        <meta name="description" content="Portfolio Website of Divyam Chandak Dixit." />
+        <title>Divyam Chandak</title>
+        <meta name="description" content="Portfolio Website of Divyam Chandak." />
         <link rel="icon" href="public/fav.png" />
       </Head>
     <Main />
@@ -31,4 +31,5 @@ export default function Home() {
     </div>
   )
 }
+
 

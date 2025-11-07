@@ -27,7 +27,7 @@ const Contact = () => {
                 />
               </div>
               <div>
-                <h2 className='py-2'>Divyam Chandak Dixit</h2>
+                <h2 className='py-2'>Divyam Chandak</h2>
                 <p>Student Developer</p>
                 <p className='py-4'>
                   I am available for Research Intern position or full-time positions.<br/>
@@ -89,4 +89,5 @@ const Contact = () => {
 };
 
 export default Contact;
+
 

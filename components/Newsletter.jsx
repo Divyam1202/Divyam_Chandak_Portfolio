@@ -11,7 +11,7 @@ const MyComponent = () => {
     </div>
       <div className="iframeWrapper">
         <iframe
-          src="https://Divyam Chandakdixit.substack.com/embed"
+          src="https://divyamchandak.substack.com/embed"
           width="100%"
           height="320"
           style={{ border: '0px solid #EEE', background: 'white' }}
@@ -25,4 +25,5 @@ const MyComponent = () => {
 };
 
 export default MyComponent;
+
 

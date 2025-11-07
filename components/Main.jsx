@@ -17,7 +17,7 @@ const Main = () => {
           <p className='uppercase text-sm tracking-widest text-800'>
             Empowering Lives through AI  
           </p><br></br><br></br>
-          <h1 className='py-1' style={{fontFamily: 'SF Pro Display, sans-serif',color:'black'}}>Divyam Chandak Dixit</h1>
+          <h1 className='py-1' style={{fontFamily: 'SF Pro Display, sans-serif',color:'black'}}>Divyam Chandak</h1>
 
           <p className='py-4 text-100 sm:max-w-[78%] m-auto' >
           {/* UG Researcher @Artificial Intelligence Institute of South Carolina | Deep Learning | 3x Patents | President @MLSC VIIT Pune | Former ML Intern @BVIRAL */}
@@ -57,7 +57,7 @@ const Main = () => {
                 <AiOutlineMail />
               </div>
             </Link>
-            <Link href="https://twitter.com/Divyam Chandak__Dixit">
+            <Link href="https://twitter.com/divyamchandak">
               <div className='rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:bg-gradient-to-r from-[#ff9100] to-[#ffb24d] hover:scale-110 ease-in duration-300'>
                 <BsTwitter />
               </div>
@@ -70,5 +70,6 @@ const Main = () => {
 };
 
 export default Main;
+
 
 

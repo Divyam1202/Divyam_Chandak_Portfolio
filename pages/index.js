@@ -1,4 +1,4 @@
-import Head from 'next/head'
+﻿import Head from 'next/head'
 import About from '../components/About'
 import Contact from '../components/Contact'
 import Main from '../components/Main'
@@ -15,8 +15,8 @@ export default function Home() {
   return (
     <div style={{backgroundColor:"#ffff"}}>
       <Head>
-        <title>Shreyas Dixit</title>
-        <meta name="description" content="Portfolio Website of Shreyas Dixit." />
+        <title>Divyam Chandak Dixit</title>
+        <meta name="description" content="Portfolio Website of Divyam Chandak Dixit." />
         <link rel="icon" href="public/fav.png" />
       </Head>
     <Main />
@@ -31,3 +31,4 @@ export default function Home() {
     </div>
   )
 }
+

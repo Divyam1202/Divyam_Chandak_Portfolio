@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import '../styles/Newsletter.module.css';
 
 const MyComponent = () => {
@@ -11,7 +11,7 @@ const MyComponent = () => {
     </div>
       <div className="iframeWrapper">
         <iframe
-          src="https://shreyasdixit.substack.com/embed"
+          src="https://Divyam Chandakdixit.substack.com/embed"
           width="100%"
           height="320"
           style={{ border: '0px solid #EEE', background: 'white' }}
@@ -25,3 +25,4 @@ const MyComponent = () => {
 };
 
 export default MyComponent;
+

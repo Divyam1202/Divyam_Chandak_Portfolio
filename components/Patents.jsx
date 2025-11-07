@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import Image from 'next/image'
 import script from '../public/assets/VisualAudioAI.png'
 import modelimage from '../public/assets/PATENT.png'
@@ -23,7 +23,7 @@ const Patents = () => {
             </div>
             <p>Indian Patent | Published 2023</p>
             <p>The solution is designed to assist blind individuals in gaining awareness of their surroundings by providing auditory access to real-time video information.</p><br></br>
-            <p><b>Authors</b> - Mr.Shreyas Dixit, Dr.Pradnya Dixit</p>
+            <p><b>Authors</b> - Mr.Divyam Chandak Dixit, Dr.Pradnya Dixit</p>
             </div>
             </div>
             </div>
@@ -38,7 +38,7 @@ const Patents = () => {
             </div>
             <p>Indian Patent | Published 2023</p>
             <p>Our solution can help visually impaired people access and experience the world around them by providing them with information and descriptions of the Images.</p><br></br>
-            <p><b>Authors</b> - Mr.Shreyas Dixit , Dr.Parikshit Mahalle , Dr.Pradnya Dixit , Mr.Yashwant Ingle</p>
+            <p><b>Authors</b> - Mr.Divyam Chandak Dixit , Dr.Parikshit Mahalle , Dr.Pradnya Dixit , Mr.Yashwant Ingle</p>
             </div>
             </div>
             </div>

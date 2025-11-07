@@ -53,7 +53,7 @@ const Models = () => {
             <Image src={translate_img} height="25px" width="25px" alt="/" />
             </div>
                 <p className="p-1 text-sm">Translation model to translate English sentence to Hindi.<br></br>Neural Machine Translation approach to build a scalable fine-tuned model.</p>
-                <h4 className="p-1" style={{textAlign: "center",width:"fit-content"}}><a href="https://huggingface.co/DSCdev/HingFlow" target="_blank" rel="noreferrer">Try Model <Image src={try_image} height="15px" width="15px" alt="/"/></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://shreyasdixit.substack.com/p/hingflow-building-your-own-english" target="_blank" rel="noreferrer">Build your own <Image src={try_image} height="15px" width="15px" alt="/"/></a></h4>
+                <h4 className="p-1" style={{textAlign: "center",width:"fit-content"}}><a href="https://huggingface.co/DSCdev/HingFlow" target="_blank" rel="noreferrer">Try Model <Image src={try_image} height="15px" width="15px" alt="/"/></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://Divyam Chandakdixit.substack.com/p/hingflow-building-your-own-english" target="_blank" rel="noreferrer">Build your own <Image src={try_image} height="15px" width="15px" alt="/"/></a></h4>
             </div>
             </div>
             </div>
@@ -104,3 +104,4 @@ const Models = () => {
 };
 
 export default Models;
+

@@ -1,4 +1,4 @@
-import Link from 'next/link';
+﻿import Link from 'next/link';
 import React from 'react';
 import Image from 'next/image'
 import hugging from '../public/assets/huggingface.png'
@@ -26,7 +26,7 @@ const Main = () => {
           <div className='flex items-center justify-between max-w-[430px] m-auto py-4'>
             
             <a
-              href='https://www.linkedin.com/in/srddev/'
+              href='https://www.linkedin.com/in/DSCdev/'
               target='_blank'
               rel='noreferrer'
             >
@@ -35,7 +35,7 @@ const Main = () => {
               </div>
             </a>
             <a
-              href='https://github.com/SRDdev'
+              href='https://github.com/DSCdev'
               target='_blank'
               rel='noreferrer'
             >
@@ -44,7 +44,7 @@ const Main = () => {
               </div>
             </a>
             <a
-              href='https://huggingface.co/SRDdev'
+              href='https://huggingface.co/DSCdev'
               target='_blank'
               rel='noreferrer'
             >
@@ -70,3 +70,4 @@ const Main = () => {
 };
 
 export default Main;
+

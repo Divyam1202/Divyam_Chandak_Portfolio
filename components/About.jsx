@@ -1,7 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import AboutImg from '../public/assets/about.jpg';
-import back from '../public/back3.png'
+import AboutImg from '../public/assets/about.png';
 const About = () => {
   return (
     <div id='about' className='w-full md:h-screen p-2 flex items-center py-16' style={{backgroundColor:"#ffff"}}>
@@ -12,20 +11,16 @@ const About = () => {
           </p>
           <h2 className='py-4'>About Me</h2>
           <p className='py-2 text-gray-700 pr-[130px] text-justify' style={{fontSize:"18px"}}>
-          I am an Undergraduate student majoring in Electronics & Telecommunications at VIIT Pune. I have a keen interest in the field of <b>Deep Learning</b>, with a specific focus on the intersection of Language and Vision modalities. I enjoy exploring and <b>implementing research ideas</b>, and have a passion for communicating my work through articles and teaching others through courses and talks.
+          I'm Divyam Chandak — a Machine Learning Engineer specializing in computer vision and language models. I build scalable ML systems and open-source models (published on Hugging Face) that bridge research and production.
           <br/><br/>
-          I like to write highly readable and self-contained code, with Python being my primary programming language. I am an <b>intermediate learner in TensorFlow and PyTorch.</b> 
+          My day-to-day work covers model development (PyTorch/TensorFlow), dataset engineering, and deploying models to production environments. I focus on reproducible experiments, readable code, and pragmatic model design that solves real-world problems.
           <br/><br/>
-          I am currently working on <b>building Open Source models on HuggingFace 🤗</b> and learning about Machine Learning in Production. I enjoy writing technical articles and giving talks about Deep Learning.
-          <br></br><br></br>
-          Off the work, I enjoy watching movies and TV shows like Suits & a regular cricket player. If you have any questions or need assistance, feel free to reach out to me. I am always happy to help!
-          <br></br>
-          <br></br>
-          Actively Looking For Internship 👨‍💻
+          I actively publish and maintain open-source projects on Hugging Face and GitHub, write technical articles, and present talks to share what I learn. If you'd like to collaborate or have questions, please reach out — I'm happy to help.
           </p>
         </div>
         <div className='w-full h-auto m-auto shadow-xl shadow-gray-400 rounded-xl flex items-center justify-center p-0 hover:scale-105 ease-in duration-300'>
-          <Image src={AboutImg} className='rounded-xl' alt='/' />
+          {/* Provide explicit width/height and object-cover so Next/Image renders predictably */}
+          <Image src={AboutImg} width={360} height={360} className='rounded-xl object-cover' alt='Portrait of Divyam Chandak' />
         </div>
       </div>
     </div>

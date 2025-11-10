@@ -6,7 +6,6 @@ import Projects from '../components/Projects'
 import Skills from '../components/Skills'
 import Models from '../components/Models'
 import Research from '../components/Research'
-import Patent from '../components/Patents'
 import Newsletter from '../components/Newsletter'
 
 
@@ -17,13 +16,12 @@ export default function Home() {
       <Head>
         <title>Divyam Chandak</title>
         <meta name="description" content="Portfolio Website of Divyam Chandak." />
-        <link rel="icon" href="public/fav.png" />
+  <link rel="icon" href="/vercel.svg" />
       </Head>
     <Main />
     <About />
-    <Models />
-    <Patent />
-    <Skills />
+  <Models />
+  <Skills />
     <Projects />
     <Research />
     <Newsletter/>

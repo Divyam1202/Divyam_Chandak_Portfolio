@@ -5,7 +5,6 @@ import { AiOutlineClose, AiOutlineMail, AiOutlineMenu } from 'react-icons/ai';
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
 import { BsFillPersonLinesFill } from 'react-icons/bs';
 // import { useRouter } from 'next/router';
-import NavLogo from '../public/assets/navLogo.png'
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
@@ -58,10 +57,10 @@ const Navbar = () => {
         <Link href='/'>
           <a>
             <Image
-              src={NavLogo}
-              alt='/'
-              width='100'
-              height='100'
+              src={'/vercel.svg'}
+              alt='DSC logo'
+              width={100}
+              height={100}
               className='cursor-pointer'
             />
           </a>
@@ -75,10 +74,10 @@ const Navbar = () => {
               <Link href='/#Models'>Models</Link>
             </li>
             <li className='ml-10 text-sm uppercase hover:border-b'>
-              <Link href='/#Patents'>Patents</Link>
+              <Link href='/#experience'>Experience</Link>
             </li>
             <li className='ml-10 text-sm uppercase hover:border-b'>
-              <Link href='/#skills'>Experience</Link>
+              <Link href='/#certifications'>Certifications</Link>
             </li>
             <li className='ml-10 text-sm uppercase hover:border-b'>
               <Link href='/#projects'>Projects</Link>
@@ -121,10 +120,10 @@ const Navbar = () => {
               <Link href='/'>
                 <a>
                   <Image
-                    src={NavLogo}
-                    width='50'
-                    height='50'
-                    alt='/'
+                    src={'/vercel.svg'}
+                    width={50}
+                    height={50}
+                    alt='DSC logo'
                   />
                 </a>
               </Link>
@@ -158,7 +157,12 @@ const Navbar = () => {
                   Notes
                 </li>
               </Link>
-              <Link href='/#skills'>
+              <Link href='/#experience'>
+                <li onClick={() => setNav(false)} className='py-4 text-sm'>
+                  Experience
+                </li>
+              </Link>
+              <Link href='/#certifications'>
                 <li onClick={() => setNav(false)} className='py-4 text-sm'>
                   Certification
                 </li>
@@ -185,7 +189,7 @@ const Navbar = () => {
               </p>
               <div className='flex items-center justify-between my-4 w-full sm:w-[80%]'>
                 <a
-                  href='https://www.linkedin.com/in/clint-briley-50056920a/'
+                  href='https://www.linkedin.com/in/divyam-chandak/'
                   target='_blank'
                   rel='noreferrer'
                 >
@@ -194,7 +198,7 @@ const Navbar = () => {
                   </div>
                 </a>
                 <a
-                  href='https://github.com/fireclint'
+                  href='https://github.com/Divyam1202'
                   target='_blank'
                   rel='noreferrer'
                 >

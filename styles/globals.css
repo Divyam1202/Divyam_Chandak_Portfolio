@@ -3,12 +3,85 @@
 @tailwind utilities;
 
 
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap');
+/* Google font for the name (Concert One) + keep Raleway as fallback for body */
+@import url('https://fonts.googleapis.com/css2?family=Concert+One&family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/*
+  Local fonts (optional): place your .woff/.woff2 files in public/fonts/
+  - Freeman (Freeman.woff2 / Freeman.woff)
+  - Momo Trust Display (MomoTrustDisplay.woff2 / MomoTrustDisplay.woff)
+  If you don't have these files, the CSS will fall back to system fonts.
+*/
+@font-face {
+  font-family: 'Freeman';
+  src: url('/fonts/Freeman.woff2') format('woff2'),
+       url('/fonts/Freeman.woff') format('woff');
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Momo Trust Display';
+  src: url('/fonts/MomoTrustDisplay.woff2') format('woff2'),
+       url('/fonts/MomoTrustDisplay.woff') format('woff');
+  font-weight: 300 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Optional: Google SixtyFour for the ticker/animation (place GoogleSixtyFour.woff2 in public/fonts/) */
+@font-face {
+  font-family: 'Google SixtyFour';
+  src: url('/fonts/GoogleSixtyFour.woff2') format('woff2'),
+       url('/fonts/GoogleSixtyFour.woff') format('woff');
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: swap;
+}
 
 html {
   scroll-behavior: smooth;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Raleway', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
 }
+
+/* Theme variables and softer background to replace stark white/black */
+:root {
+  --bg-top: #f7f9fc; /* light neutral */
+  --bg-bottom: #ffffff; /* card background */
+  --page-accent: #ff9100; /* orange accent used in site */
+  --text-default: #0f172a; /* dark slate for primary text */
+  --muted: #6b7280; /* muted text */
+}
+
+body {
+  background: linear-gradient(180deg, var(--bg-top), var(--bg-bottom));
+  color: var(--text-default);
+}
+
+/* Hero background with subtle diagonal texture and soft accent glow */
+.hero-bg {
+  background-image: linear-gradient(180deg, rgba(255,145,0,0.03), rgba(112,157,255,0.02)),
+                    radial-gradient(800px 200px at 10% 10%, rgba(255,145,0,0.03), transparent 20%),
+                    linear-gradient(180deg, transparent, rgba(255,255,255,0.6));
+  background-repeat: no-repeat;
+}
+
+/* Card surface used across About, Skills, and certificates to lift content off the page */
+.card-surface {
+  background: linear-gradient(180deg, #ffffff, #fbfbfd);
+  box-shadow: 0 8px 24px rgba(16,24,40,0.06);
+  border-radius: 1rem;
+}
+
+/* Accent button style */
+.btn-accent {
+  @apply inline-flex items-center justify-center px-4 py-2 rounded-md text-white font-medium shadow;
+  background: linear-gradient(90deg, var(--page-accent), #ffb24d);
+}
+
+/* Muted text utility */
+.text-muted { color: var(--muted); }
 
 @layer base {
   body {
@@ -24,6 +97,8 @@ html {
   }
 
   h2 {
+    /* Headings use Momo Trust Display when available, fallback to bold system font */
+    font-family: 'Momo Trust Display', -apple-system, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     @apply text-3xl sm:text-4xl
   }
   
@@ -34,4 +109,75 @@ html {
   button {
     @apply shadow-xl shadow-gray-400 rounded-xl uppercase bg-gradient-to-r from-[#5651e5] to-[#709dff] text-white
   }
+}
+
+/* Utility classes to apply the requested fonts in components */
+.font-name {
+  /* Concert One for the primary display name */
+  font-family: 'Concert One', 'Momo Trust Display', cursive;
+}
+
+.font-summary {
+  /* Freeman for the summary paragraph under the name; fallback to serif */
+  font-family: 'Freeman', Georgia, 'Times New Roman', serif;
+}
+
+.font-heading {
+  /* Use for section headings when you want the display look */
+  font-family: 'Momo Trust Display', 'Concert One', -apple-system, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Ticker font utility (uses Google SixtyFour when available) */
+.font-ticker {
+  font-family: 'Google SixtyFour', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+
+/* Scrollable lines animation used in hero to cycle short details or certifications */
+/* Scrollable lines animation used in hero to cycle short details or certifications */
+:root {
+  /* Visible line height. Increase this to give two-line items room. */
+  /* Reduce visible slot height slightly to tighten gaps between items. */
+  --scroll-line-height: 4.5rem; /* reduced by 0.5rem to make gaps ~0.5 line smaller */
+  /* Total time for one full loop. Increase to slow down. With steps animation
+    this becomes the per-cycle time; each step = duration / number_of_items. */
+  --scroll-duration: 30s; /* increased so each item has more on-screen time */
+  /* Number of unique items in one list (not counting the duplicated copy). If
+    you change the number of unique scroll items, update --scroll-steps accordingly. */
+  --scroll-steps: 6;
+}
+
+@keyframes scroll-vertical {
+  /* Continuous linear scroll from 0 to -50% (one copy of the list). This
+     produces a smooth, uninterrupted scrolling effect with no holds. */
+  0% { transform: translate3d(0, 0%, 0); }
+  100% { transform: translate3d(0, -50%, 0); }
+}
+
+.scroll-viewport {
+  height: var(--scroll-line-height); /* show one line at a time */
+  overflow: hidden;
+  position: relative;
+}
+
+.scroll-list {
+  display: flex;
+  flex-direction: column;
+  /* duplicate the content in markup (list+list) and translate -50% to scroll one copy */
+  /* Use a smooth keyframed animation that holds and transitions between positions.
+    Apply an ease-in-out timing curve so transitions feel natural (smooth scrolling
+    with gentle acceleration/deceleration). */
+  /* Use a linear timing function so the scroll speed stays constant throughout.
+     translate3d is used above for GPU-accelerated, consistent motion. */
+  animation: scroll-vertical var(--scroll-duration) linear infinite;
+  will-change: transform;
+}
+
+.scroll-item {
+  height: var(--scroll-line-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  font-family: 'Google SixtyFour', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  padding: 0.125rem 0; /* reduced breathing room to further tighten gaps */
 }

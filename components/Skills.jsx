@@ -5,174 +5,176 @@ import google from '../public/assets/skills/google.png'
 
 const Skills = () => {
   return (
-    <div id='skills' className='w-full h-full mb-[100px]' style={{backgroundColor:"#ffff"}}>
+    <section id='skills' className='w-full h-full mb-[100px]' style={{backgroundColor: "#ffff"}}>
+      {/* eslint-disable-next-line react/no-unknown-property */}
+      <style jsx>{`
+        @keyframes vibrate {
+          0% { transform: translateX(0); }
+          20% { transform: translateX(-1px); }
+          40% { transform: translateX(1px); }
+          60% { transform: translateX(-1px); }
+          80% { transform: translateX(1px); }
+          100% { transform: translateX(0); }
+        }
+        .vibrate:hover {
+          animation: vibrate 0.35s linear;
+        }
+      `}</style>
       <div className='max-w-[1240px] mx-auto flex flex-col justify-center h-full'>
-      <h2 className='py-4'>Certificates & Experience</h2>
-        <p className='text-xl tracking-widest uppercase text-[#ff9100] p-4'>
-          Experience
-        </p>
-        <div className='grid grid-cols-2 gap-8'style={{marginBottom:"50px"}}>
+        <h2 className='py-4'>Experience & Certifications</h2>
 
-        {/* Research Fellow AISC*/}
-        {/* <div className='grid grid-cols-1 gap-8' >
-        <div className="p-0 hover:scale-105 ease-in duration-300" data-sr-id="17" style={{borderRadius:"1.5rem",visibility: "visible", opacity: 1, backgroundColor: "#f1f3f4",boxShadow: "0 0 25px rgba(0, 0, 0, 0.1)"}}>
-          <div className="p-4 rounded-xl" style={{borderRadius:"1.5rem"}}>
-            <h3 className="pl-4" style={{fontSize:"25px"}}>Undergraduate Research Fellow</h3>
-            <h5 className="p-4">Artificial Intelligence Institute of South Carolina<br />May 2024 - Current</h5>
-            <p className='p-4'>
-           <br></br></p>
-          </div>
-        </div>
-        </div> */}
+        {/* EXPERIENCE SECTION */}
+        <section id='experience'>
+          <p className='text-xl tracking-widest uppercase text-[#ff9100] p-4'>
+            Experience
+          </p>
 
-        {/* Dassult Systems*/}
-        <div className='grid grid-cols-1 gap-8' >
-        <div className="p-0 hover:scale-105 ease-in duration-300" data-sr-id="17" style={{borderRadius:"1.5rem",visibility: "visible", opacity: 1, backgroundColor: "#f1f3f4",boxShadow: "0 0 25px rgba(0, 0, 0, 0.1)"}}>
-          <div className="p-4 rounded-xl" style={{borderRadius:"1.5rem"}}>
-            <h3 className="pl-4" style={{fontSize:"25px"}}>Deep Learning Engineer</h3>
-            <h5 className="p-4">Dassult Systems & VIIT<br />Nov 2023 - May 2024</h5>
-            <p className='p-4'>
-            Worked on Stutter Detection using Deep Learning. Project Included data gathering from schools, colleges, and universities. Data preprocessing, Exploratory data analysis, etc.<br></br>Developed a system for stutter detection, which includes distinguishing the time of stuttering and calculating the percentage of 
-stuttering. This work utilized modern deep learning architectures such as Wav2Vec2 and Agnostic BERT. <br></br></p>
-          </div>
-        </div>
-        </div>
+          <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8' style={{ marginBottom: '50px' }}>
+            {/* SMARTQRTECHNOLOGIESPVTLTD */}
+            <div className='h-full p-0' data-sr-id='17'>
+              <div className='h-full p-4 rounded-xl hover:scale-105 ease-in duration-300' style={{ borderRadius: '1.5rem', backgroundColor: '#f1f3f4', boxShadow: '0 0 25px rgba(0, 0, 0, 0.1)' }}>
+                <div className='flex flex-col h-full justify-between'>
+                  <div>
+                    <h3 className='pl-4' style={{ fontSize: '22px' }}>SMARTQR TECHNOLOGIES PVT LTD</h3>
+                    <h4 className='pl-4' style={{ fontSize: '18px' }}>Machine Learning Engineer</h4>
+                    <h5 className='p-4'>Pune, India · Jun 2025 – Present</h5>
+                    <p className='p-4'>
+                      • Engineered end-to-end Machine Learning solutions by developing and deploying TensorFlow models for image recognition and building scalable data pipelines.
+                      <br />• Improved model robustness against image distortion by researching and implementing advanced computer vision algorithms.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-      {/* Freelance MLE */}
-        <div className='grid grid-cols-1 gap-8' >
-        <div className="p-0 hover:scale-105 ease-in duration-300" data-sr-id="17" style={{borderRadius:"1.5rem",visibility: "visible", opacity: 1, backgroundColor: "#f1f3f4",boxShadow: "0 0 25px rgba(0, 0, 0, 0.1)"}}>
-          <div className="p-4 rounded-xl" style={{borderRadius:"1.5rem"}}>
-            <h3 className="pl-4" style={{fontSize:"25px"}}>Machine Learning Engineer</h3>
-            <h5 className="p-4">Freelance<br />Jan 2024 - Mar 2024</h5>
-            <p className='p-4'>
-            Contributed to the development of "Real-time Accent Conversion System: Indian to US Accent".</p>
-          </div>
-        </div>
-        </div>
+            {/* CREATOR RESEARCHPVTLTD */}
+            <div className='h-full p-0' data-sr-id='17'>
+              <div className='h-full p-4 rounded-xl hover:scale-105 ease-in duration-300' style={{ borderRadius: '1.5rem', backgroundColor: '#f1f3f4', boxShadow: '0 0 25px rgba(0, 0, 0, 0.1)' }}>
+                <div className='flex flex-col h-full justify-between'>
+                  <div>
+                    <h3 className='pl-4' style={{ fontSize: '22px' }}>CREATOR RESEARCH PVT LTD</h3>
+                    <h4 className='pl-4' style={{ fontSize: '18px' }}>Full Stack Intern</h4>
+                    <h5 className='p-4'>Remote · Aug 2024 – Dec 2024</h5>
+                    <p className='p-4'>
+                      • Architected a full-stack e-learning platform (live demo) using React, Node.js, and MongoDB, improving API response time by 40%.
+                      <br />• Enhanced platform security with OAuth2 authorization and developed analytics dashboards that boosted course completion rates by 30%.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-      {/* BVIRAL */}
-        <div className='grid grid-cols-1 gap-8' >
-        <div className="p-0 hover:scale-105 ease-in duration-300" data-sr-id="17" style={{borderRadius:"1.5rem",visibility: "visible", opacity: 1, backgroundColor: "#f1f3f4",boxShadow: "0 0 25px rgba(0, 0, 0, 0.1)"}}>
-          <div className="p-4 rounded-xl" style={{borderRadius:"1.5rem"}}>
-            <h3 className="pl-4" style={{fontSize:"25px"}}>Machine Learning Intern</h3>
-            <h5 className="p-4">BVIRAL<br />June 2023 - Sept 2023</h5>
-            <p className='p-4'>
-During my time at BVIRAL, I will be actively involved in building a deep learning pipeline for their content company. This exciting project entails developing a comprehensive system that generates relevant titles and categorizes millions of short-form videos on Instagram. As a Deep Learning Engineering Intern, my responsibilities will include designing and implementing algorithms, optimizing model performance, and collaborating with a talented team to ensure the success and effectiveness of the pipeline. I am thrilled to contribute my skills and knowledge to this project and make a significant impact in the field of content generation and categorization.</p>
+            {/* INTEGRATED ACTIVE MONITORING PVT LTD */}
+            <div className='h-full p-0' data-sr-id='17'>
+              <div className='h-full p-4 rounded-xl hover:scale-105 ease-in duration-300' style={{ borderRadius: '1.5rem', backgroundColor: '#f1f3f4', boxShadow: '0 0 25px rgba(0, 0, 0, 0.1)' }}>
+                <div className='flex flex-col h-full justify-between'>
+                  <div>
+                    <h3 className='pl-4' style={{ fontSize: '22px' }}>INTEGRATED ACTIVE MONITORING PVT LTD</h3>
+                    <h4 className='pl-4' style={{ fontSize: '18px' }}>Python Developer</h4>
+                    <h5 className='p-4'>Pune, India · Aug 2023 – Apr 2024</h5>
+                    <p className='p-4'>
+                      • Developed an IoT backend and BLE Gateway Network on a Raspberry Pi server to enable real-time device connectivity and telemetry ingestion.
+                      <br />• Implemented reliable BLE scanning and GATT interactions using Python (BLE library), and designed a lightweight message pipeline to forward sensor data to the cloud via MQTT/HTTP.
+                      <br />• Implemented batching, compression and retry logic which improved system efficiency by 15% and reduced end-to-end data latency by 20%.
+                      <br />• Wrote automated tests and monitoring scripts, documented the deployment on Raspberry Pi, and published code snippets and instructions for reproducible local setup.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        </div>
-      
-      {/* MLSC */}
-      <div className='grid grid-cols-1 gap-8' >
-        <div className="p-0 hover:scale-105 ease-in duration-300" data-sr-id="17" style={{borderRadius:"1.5rem",visibility: "visible", opacity: 1, backgroundColor: "#f1f3f4",boxShadow: "0 0 25px rgba(0, 0, 0, 0.1)"}}>
-          <div className="p-4 rounded-xl" style={{borderRadius:"1.5rem"}}>
-            <h3 className="pl-4" style={{fontSize:"25px"}}>Microsoft Learn Student Ambassdor</h3>
-            <h5 className="p-4">MLSC VIIT<br />June 2023 - Current</h5>
-            <p className='p-4'>Leading the Microsoft Club at Vishwakarma Institute of Information Technology Pune.</p>
-          </div>
-        </div>
-        </div>
-        
-      {/* WebDev */}
-        <div className='grid grid-cols-1 gap-8' >
-        <div className="p-0 hover:scale-105 ease-in duration-300" data-sr-id="17" style={{borderRadius:"1.5rem",visibility: "visible", opacity: 1, backgroundColor: "#f1f3f4",boxShadow: "0 0 25px rgba(0, 0, 0, 0.1)"}}>
-          <div className="p-4 rounded-xl" style={{borderRadius:"1.5rem"}}>
-            <h3 className="pl-4" style={{fontSize:"25px"}}>Website Developer</h3>
-            <h5 className="p-4">Epsitek Technologies<br />APR 2022 - MAY 2022</h5>
-            <p className='p-4'>During my internship, I developed a multiple page website for a holiday home or villa. The project involved working in an Agile team system, following an iterative and collaborative approach to project management. We analyzed the client&apos;s requirements, developed a project plan, and used HTML, CSS, JavaScript to develop the website. We incorporated features such as an attractive landing page, image gallery, and contact form. Through collaborative teamwork and regular meetings, we successfully delivered a website that met the client&apos;s expectations.</p>
-          </div>
-        </div>
-        </div>
+        </section>
 
+        {/* CERTIFICATIONS SECTION */}
+        <section id='certifications'>
+          <p className='text-xl tracking-widest uppercase text-[#ff9100] p-4'>
+            Certificates
+          </p>
 
+          <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8'>
+            {/* Deloitte */}
+            <div className='p-0 shadow-xl hover:scale-105 ease-in duration-300' data-sr-id='17' style={{ borderRadius: '1.5rem' }}>
+              <div className='p-4' style={{ borderRadius: '1.5rem', background: ' #f2f2f2' }}>
+                <div className='flex flex-col items-start'>
+                  <h3 className='text-left' style={{ fontSize: '20px' }}>Deloitte Australia - Data Analytics Job Simulation</h3>
+                </div>
+              </div>
+              <div className='p-4 rounded-b-xl flex items-center justify-center gap-4' style={{ borderRadius: '1.5rem' }}>
+                <Image className='vibrate' src={'/assets/deloitte.jpeg'} width={48} height={48} alt='deloitte' />
+                <div className='text-sm text-left'>
+                  <div>Feb 2025</div>
+                  <div className='mt-1'><a href='https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/9PBTqmSxAf6zZTseP/io9DzWKe3PTsiS6GG_9PBTqmSxAf6zZTseP_Bd9QLbj9tE2hkm2MW_1739884741829_completion_certificate.pdf' target='_blank' rel='noreferrer' className='text-blue-600 underline'>Certificate 🔗</a></div>
+                </div>
+              </div>
+            </div>
 
-        </div>
-        <p className='text-xl tracking-widest uppercase text-[#ff9100] p-4'>
-          Certificates
-        </p>
-        <div className='grid grid-cols-2 lg:grid-cols-3 gap-8'>
+            {/* IBM */}
+            <div className='p-0 shadow-xl hover:scale-105 ease-in duration-300' data-sr-id='17' style={{ borderRadius: '1.5rem' }}>
+              <div className='p-4' style={{ borderRadius: '1.5rem', background: ' #f2f2f2' }}>
+                <div className='flex flex-col items-start'>
+                  <h3 className='text-left' style={{ fontSize: '20px' }}>IBM - Data Engineering Professional Certification</h3>
+                </div>
+              </div>
+              <div className='p-4 rounded-b-xl flex items-center justify-center gap-4' style={{ borderRadius: '1.5rem' }}>
+                <Image className='vibrate' src={'/assets/ibm-logo-18914.png'} width={48} height={48} alt='ibm' />
+                <div className='text-sm text-left'>
+                  <div>Nov 2024</div>
+                  <div className='mt-1'><a href='https://www.coursera.org/account/accomplishments/professional-cert/certificate/EWPZX1ZBVEX2' target='_blank' rel='noreferrer' className='text-blue-600 underline'>Certificate 🔗</a></div>
+                </div>
+              </div>
+            </div>
 
-        <div className="p-0 shadow-xl hover:scale-105 ease-in duration-300" data-sr-id="17" style={{borderRadius:"1.5rem",visibility: "visible", opacity: 1}}>
-        <div className="p-4" style={{borderTopRightRadius:"1.5rem",borderTopLeftRadius:"1.5rem",background: " #f2f2f2"}}>
-          <div className="flex flex-col items-center justify-center">
-            <h3 className="text-left" style={{fontSize:"22px"}}>TensorFlow Developer Certificate</h3>
-          </div>
-        </div>
-        <div className="p-4 shadow-xl rounded-xl"style={{borderRadius:"1.5rem"}}>
-                <h5 className="experience-text-role">
-                <Image className='m-auto' src={dpai} width='16px' height='16px' alt='/' /> DeepLearning AI<br />OCT 2021 - NOV 2021</h5>
-                <h4 className="text p-1" style={{textAlign: "center",width:"fit-content"}}><a href="https://www.coursera.org/account/accomplishments/specialization/certificate/Z52RQJG8GLHZ" target="_blank" rel="noreferrer">Specialization Certificate 🔗</a></h4>
-          </div>
-        </div>
+            {/* Google Android Internship */}
+            <div className='p-0 shadow-xl hover:scale-105 ease-in duration-300' data-sr-id='17' style={{ borderRadius: '1.5rem' }}>
+              <div className='p-4' style={{ borderRadius: '1.5rem', background: ' #f2f2f2' }}>
+                <div className='flex items-center gap-3'>
+                  <h3 className='text-left' style={{ fontSize: '20px' }}>Google - Android Developers Virtual Internship</h3>
+                </div>
+              </div>
+              <div className='p-4 rounded-b-xl flex items-center justify-center gap-4' style={{ borderRadius: '1.5rem' }}>
+                <Image className='vibrate' src={'/assets/google.png'} width={48} height={48} alt='google' />
+                <div className='text-sm text-left'>
+                  <div>Apr 2024 – Jun 2024</div>
+                  <div className='mt-1'><a href='https://drive.google.com/file/d/1-HyTsLAyLtimkzlaa37AlLGlmw3BDJZ9/view?usp=sharing' target='_blank' rel='noreferrer' className='text-blue-600 underline'>Certificate 🔗</a></div>
+                </div>
+              </div>
+            </div>
 
-        <div className="p-0 shadow-xl hover:scale-105 ease-in duration-300" data-sr-id="17" style={{borderRadius:"1.5rem",visibility: "visible", opacity: 1}}>
-        <div className="p-4" style={{borderTopRightRadius:"1.5rem",borderTopLeftRadius:"1.5rem",background: " #f2f2f2"}}>
-          <div className="flex flex-col items-center justify-center">
-            <h3 className="text-left" style={{fontSize:"22px"}}>Custom Models, Layers Loss Functions with TensorFlow</h3>
-          </div>
-        </div>
-        <div className="p-4 shadow-xl rounded-xl"style={{borderRadius:"1.5rem"}}>
-                <h5 className="experience-text-role">
-                <Image className='m-auto' src={dpai} width='16px' height='16px' alt='/' /> DeepLearning AI<br />OCT 2022</h5>
-                <h4 className="text p-1" style={{textAlign: "center",width:"fit-content"}}><a href="\" target="_blank" rel="noreferrer">Certificate 🔗</a></h4>
-          </div>
-        </div>
+            {/* Google AI/ML Internship */}
+            <div className='p-0 shadow-xl hover:scale-105 ease-in duration-300' data-sr-id='17' style={{ borderRadius: '1.5rem' }}>
+              <div className='p-4' style={{ borderRadius: '1.5rem', background: ' #f2f2f2' }}>
+                <div className='flex items-center gap-3'>
+                  <h3 className='text-left' style={{ fontSize: '20px' }}>Google - AI/ML Virtual Internship</h3>
+                </div>
+              </div>
+              <div className='p-4 rounded-b-xl flex items-center justify-center gap-4' style={{ borderRadius: '1.5rem' }}>
+                <Image className='vibrate' src={'/assets/google.png'} width={48} height={48} alt='google' />
+                <div className='text-sm text-left'>
+                  <div>Jan 2024 – Mar 2024</div>
+                  <div className='mt-1'><a href='https://drive.google.com/file/d/12pKnGIuYNqOs8LyQrFJ4UmlSZ6JaCBUs/view?usp=sharing' target='_blank' rel='noreferrer' className='text-blue-600 underline'>Certificate 🔗</a></div>
+                </div>
+              </div>
+            </div>
 
-        <div className="p-0 shadow-xl hover:scale-105 ease-in duration-300" data-sr-id="17" style={{borderRadius:"1.5rem",visibility: "visible", opacity: 1}}>
-        <div className="p-4" style={{borderTopRightRadius:"1.5rem",borderTopLeftRadius:"1.5rem",background: " #f2f2f2"}}>
-          <div className="flex flex-col justify-center"style={{height:"65px"}}>
-            <h3 className="text" style={{fontSize:"22px"}}>Sequence Models</h3>
+            {/* DSA using Java */}
+            <div className='p-0 shadow-xl hover:scale-105 ease-in duration-300' data-sr-id='17' style={{ borderRadius: '1.5rem' }}>
+              <div className='p-4' style={{ borderRadius: '1.5rem', background: ' #f2f2f2' }}>
+                <div className='flex flex-col items-start'>
+                  <h3 className='text-left' style={{ fontSize: '20px' }}>Data Structures and Algorithms using Java</h3>
+                </div>
+              </div>
+              <div className='p-4 rounded-b-xl flex items-center justify-center gap-4' style={{ borderRadius: '1.5rem' }}>
+                <Image className='vibrate' src={'/assets/java.png'} width={48} height={48} alt='java' />
+                <div className='text-sm text-left'>
+                  <div>Mar 2023</div>
+                  <div className='mt-1'><a href='https://drive.google.com/file/d/127lDBx3SE41rJV9q68mJCVihTthS4O-J/view?usp=sharing' target='_blank' rel='noreferrer' className='text-blue-600 underline'>Certificate 🔗</a></div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-        <div className="p-4 shadow-xl rounded-xl"style={{borderRadius:"1.5rem"}}>
-                <h5 className="experience-text-role">
-                <Image className='m-auto' src={dpai} width='16px' height='16px' alt='/' /> DeepLearning AI<br />May 2022 - Aug 2022</h5>
-                <h4 className="text p-1" style={{textAlign: "center",width:"fit-content"}}><a href="" target="_blank" rel="noreferrer">Certificate 🔗</a></h4>
-          </div>
-        </div>
-
-        <div className="p-0 shadow-xl hover:scale-105 ease-in duration-300" data-sr-id="17" style={{borderRadius:"1.5rem",visibility: "visible", opacity: 1}}>
-        <div className="p-4" style={{borderTopRightRadius:"1.5rem",borderTopLeftRadius:"1.5rem",background: " #f2f2f2"}}>
-          <div className="flex flex-col items-center justify-center"style={{height:"65px"}}>
-            <h3 className="text" style={{fontSize:"22px"}}>Neural Networks & Deep Learning</h3>
-          </div>
-        </div>
-        <div className="p-4 shadow-xl rounded-xl"style={{borderRadius:"1.5rem"}}>
-                <h5 className="experience-text-role">
-                <Image className='m-auto' src={dpai} width='16px' height='16px' alt='/' /> DeepLearning AI<br />Nov 2021 - Jan 2022</h5>
-                <h4 className="text p-1" style={{textAlign: "center",width:"fit-content"}}><a href="" target="_blank" rel="noreferrer">Certificate 🔗</a></h4>
-          </div>
-        </div>
-
-        <div className="p-0 shadow-xl hover:scale-105 ease-in duration-300" data-sr-id="17" style={{borderRadius:"1.5rem",visibility: "visible", opacity: 1}}>
-        <div className="p-4" style={{borderTopRightRadius:"1.5rem",borderTopLeftRadius:"1.5rem",background: " #f2f2f2"}}>
-          <div className="flex flex-col items-center justify-center"style={{height:"65px"}}>
-            <h3 className="text" style={{fontSize:"22px"}}>Improving Deep Neural Networks</h3>
-          </div>
-        </div>
-        <div className="p-4 shadow-xl rounded-xl"style={{borderRadius:"1.5rem"}}>
-                <h5 className="experience-text-role">
-                <Image className='m-auto' src={dpai} width='16px' height='16px' alt='/' /> DeepLearning AI<br />Apr 2022 - May 2022</h5>
-                <h4 className="text p-1" style={{textAlign: "center",width:"fit-content"}}><a href="" target="_blank" rel="noreferrer">Certificate 🔗</a></h4>
-          </div>
-        </div>
-
-        <div className="p-0 shadow-xl hover:scale-105 ease-in duration-300" data-sr-id="17" style={{borderRadius:"1.5rem",visibility: "visible", opacity: 1}}>
-        <div className="p-4" style={{borderTopRightRadius:"1.5rem",borderTopLeftRadius:"1.5rem",background: "#f2f2f2"}}>
-          <div className="flex flex-col justify-center"style={{height:"65px"}}>
-            <h3 className="text" style={{fontSize:"22px"}}>Google Project Management</h3>
-          </div>
-        </div>
-        <div className="p-4 shadow-xl rounded-xl"style={{borderRadius:"1.5rem"}}>
-                <h5 className="experience-text-role">
-                <Image className='m-auto' src={google} width='16px' height='16px' alt='/' /> Google <br />Aug 2021 - OCT 2021</h5>
-                <h4 className="text p-1" style={{textAlign: "center",width:"fit-content"}}><a href="https://google.com" target="_blank" rel="noreferrer">Professional Certification🔗</a></h4>
-          </div>
-        </div>
-
-        </div>
+        </section>
       </div>
-    </div>
+    </section>
   );
 };
 

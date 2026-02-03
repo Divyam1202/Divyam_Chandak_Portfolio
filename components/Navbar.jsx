@@ -46,16 +46,16 @@ const Navbar = () => {
 
   return (
     <div
-    style={{backdropFilter: "blur(10px)"}}
+    style={{backdropFilter: "blur(10px)", background: "rgba(255, 255, 255, 0.7)"}}
       className={
         shadow
-          ? 'fixed w-full h-20 shadow-xl z-[100] ease-in-out duration-300'
+          ? 'fixed w-full h-20 shadow-lg z-[100] ease-in-out duration-300 border-b border-gray-100'
           : 'fixed w-full h-20 z-[100]'
       }
     >
       <div className='flex justify-between items-center w-full h-full px-2 2xl:px-16'>
         <Link href='/'>
-          <a>
+          <a className='hover:opacity-80 transition-opacity duration-300'>
             <Image
               src={'/vercel.svg'}
               alt='DSC logo'
@@ -66,26 +66,26 @@ const Navbar = () => {
           </a>
         </Link>
         <div>
-          <ul style={{ color: "white"}} className='hidden md:flex'>
-            <li className='ml-10 text-sm uppercase hover:border-b'>
+          <ul style={{ color: "#1f2937"}} className='hidden md:flex gap-1'>
+            <li className='px-4 py-2 text-sm font-medium hover:text-[#ff9100] transition-colors duration-300 rounded-lg hover:bg-gray-50'>
               <Link href='/'>Home</Link>
             </li>
-            <li className='ml-10 text-sm uppercase hover:border-b'>
+            <li className='px-4 py-2 text-sm font-medium hover:text-[#ff9100] transition-colors duration-300 rounded-lg hover:bg-gray-50'>
               <Link href='/#Models'>Models</Link>
             </li>
-            <li className='ml-10 text-sm uppercase hover:border-b'>
+            <li className='px-4 py-2 text-sm font-medium hover:text-[#ff9100] transition-colors duration-300 rounded-lg hover:bg-gray-50'>
               <Link href='/#experience'>Experience</Link>
             </li>
-            <li className='ml-10 text-sm uppercase hover:border-b'>
+            <li className='px-4 py-2 text-sm font-medium hover:text-[#ff9100] transition-colors duration-300 rounded-lg hover:bg-gray-50'>
               <Link href='/#certifications'>Certifications</Link>
             </li>
-            <li className='ml-10 text-sm uppercase hover:border-b'>
+            <li className='px-4 py-2 text-sm font-medium hover:text-[#ff9100] transition-colors duration-300 rounded-lg hover:bg-gray-50'>
               <Link href='/#projects'>Projects</Link>
             </li>
-            <li className='ml-10 text-sm uppercase hover:border-b'>
+            <li className='px-4 py-2 text-sm font-medium hover:text-[#ff9100] transition-colors duration-300 rounded-lg hover:bg-gray-50'>
               <Link href='/#blogs'>Blogs</Link>
             </li>
-            <li className='ml-10 text-sm uppercase hover:border-b'>
+            <li className='px-4 py-2 text-sm font-medium hover:text-[#ff9100] transition-colors duration-300 rounded-lg hover:bg-gray-50'>
               <Link href='/#contact'>Contact</Link>
             </li>
           </ul>

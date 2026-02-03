@@ -34,86 +34,116 @@ const ContactPhone = () => {
 
 const Contact = () => {
   return (
-    <div id='contact' className='w-full h-full' style={{backgroundColor:"#ffffff"}}>
-      <div className='max-w-[1240px] m-auto px-2 py-16 w-full '>
-        <p className='text-xl tracking-widest uppercase text-[#ff9100]'>
-          Contact
+    <div id='contact' className='w-full h-full' style={{backgroundColor:"#f8f9fa"}}>
+      <div className='max-w-[1240px] m-auto px-2 py-20 w-full '>
+        <p className='text-xl tracking-widest uppercase text-[#ff9100] font-semibold'>
+          Get In Touch
         </p>
-        <h2 className='py-4'>Get In Touch</h2>
+        <h2 className='py-4 text-4xl md:text-5xl font-bold'>Let&apos;s Connect</h2>
+        <p className='text-gray-600 max-w-2xl mb-12'>Have a question or want to collaborate? I'd love to hear from you. Feel free to reach out through any of the channels below.</p>
+        
         <div className='grid lg:grid-cols-5 gap-8'>
-          {/* left */}
-          <div className='col-span-3 lg:col-span-2 w-full h-full shadow-xl shadow-gray-400 rounded-xl p-4'>
-            <div className='lg:p-4 h-full '>
-              <div>
+          {/* Profile Card */}
+          <div className='lg:col-span-2 bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow'>
+            <div className='p-6'>
+              <div className='mb-6'>
                 <Image
-                  className='rounded-xl hover:scale-105 ease-in duration-300'
+                  className='rounded-lg w-full h-64 object-cover hover:scale-105 transition-transform duration-300'
                   src={ContactImg}
-                  alt='/'
+                  alt='Divyam'
                 />
               </div>
-              <div>
-                <h2 className='py-2 font-name'>Divyam Chandak</h2>
-                <p className='font-heading'>Machine Learning Engineer</p>
-                <p className='py-4 font-summary'>
-                  Machine Learning Engineer specializing in computer vision and scalable data pipelines. Certified by Google (AI/ML) and IBM (Data Engineering).
+              <div className='mb-6'>
+                <h2 className='text-2xl font-bold text-gray-900 mb-1'>Divyam Chandak</h2>
+                <p className='text-[#ff9100] font-semibold mb-3'>Machine Learning Engineer</p>
+                <p className='text-gray-600 text-sm leading-relaxed'>
+                  Specializing in computer vision and scalable data pipelines. Certified by Google (AI/ML) and IBM (Data Engineering). Passionate about building intelligent systems.
                 </p>
               </div>
-              <div>
-                <p className='uppercase pt-8'>Connect With Me</p>
-                <div className='flex items-center justify-between py-4'>
+              <div className='border-t pt-6'>
+                <p className='text-xs uppercase tracking-widest font-semibold text-gray-700 mb-4'>Connect</p>
+                <div className='flex items-center justify-between gap-3'>
                   <a
                     href='https://www.linkedin.com/in/divyam-chandak/'
                     target='_blank'
                     rel='noreferrer'
+                    className='flex-1'
                   >
-                    <div className='rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300'>
-                      <FaLinkedinIn />
+                    <div className='rounded-lg bg-gray-100 p-4 cursor-pointer hover:bg-gradient-to-r hover:from-[#ff9100] hover:to-[#ffb24d] hover:text-white transition-all duration-300 flex items-center justify-center'>
+                      <FaLinkedinIn size={20} />
                     </div>
                   </a>
                   <a
                     href='https://github.com/Divyam1202'
                     target='_blank'
                     rel='noreferrer'
+                    className='flex-1'
                   >
-                    <div className='rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300'>
-                      <FaGithub />
+                    <div className='rounded-lg bg-gray-100 p-4 cursor-pointer hover:bg-gradient-to-r hover:from-[#ff9100] hover:to-[#ffb24d] hover:text-white transition-all duration-300 flex items-center justify-center'>
+                      <FaGithub size={20} />
                     </div>
                   </a>
-
                   <a
                     href='mailto:chandakdivyam@gmail.com'
                     target='_blank'
                     rel='noreferrer'
+                    className='flex-1'
                     onClick={(e) => {
-                      // open Gmail compose in a new tab when possible; fall back to mailto
-                      try {
-                        e.preventDefault();
-                        const gmailUrl = 'https://mail.google.com/mail/?view=cm&fs=1&to=chandakdivyam@gmail.com';
-                        // open Gmail compose in a new tab/window
-                        window.open(gmailUrl, '_blank', 'noopener,noreferrer');
-                      } catch (err) {
-                        // if anything goes wrong, allow the mailto link to act as fallback
-                        // (no-op here — default href will be followed because we didn't prevent it)
-                      }
+                      e.preventDefault();
+                      const gmailUrl = 'https://mail.google.com/mail/?view=cm&fs=1&to=chandakdivyam@gmail.com';
+                      window.open(gmailUrl, '_blank', 'noopener,noreferrer');
                     }}
                   >
-                    <div className='rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300'>
-                      <AiOutlineMail />
+                    <div className='rounded-lg bg-gray-100 p-4 cursor-pointer hover:bg-gradient-to-r hover:from-[#ff9100] hover:to-[#ffb24d] hover:text-white transition-all duration-300 flex items-center justify-center'>
+                      <AiOutlineMail size={20} />
                     </div>
                   </a>
-                  {/* contact icon: expands into a rounded pill to reveal phone number */}
-                  <ContactPhone />
                 </div>
               </div>
             </div>
           </div>
+
+          {/* Contact Form */}
+          <div className='lg:col-span-3 bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow'>
+            <form className='flex flex-col gap-4'>
+              <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
+                <input
+                  className='bg-gray-50 p-4 rounded-lg border border-gray-200 focus:outline-none focus:border-[#ff9100] focus:ring-2 focus:ring-[#ff9100]/20 transition-all'
+                  type='text'
+                  placeholder='Name'
+                  required
+                />
+                <input
+                  className='bg-gray-50 p-4 rounded-lg border border-gray-200 focus:outline-none focus:border-[#ff9100] focus:ring-2 focus:ring-[#ff9100]/20 transition-all'
+                  type='email'
+                  placeholder='Email'
+                  required
+                />
+              </div>
+              <textarea
+                className='bg-gray-50 p-4 rounded-lg border border-gray-200 focus:outline-none focus:border-[#ff9100] focus:ring-2 focus:ring-[#ff9100]/20 transition-all'
+                cols='30'
+                rows='4'
+                placeholder='Message'
+                required
+              ></textarea>
+              <button
+                type='submit'
+                className='px-6 py-3 rounded-lg bg-gradient-to-r from-[#ff9100] to-[#ffb24d] text-white font-semibold hover:shadow-lg transition-all duration-300 w-fit hover:scale-105'
+              >
+                Send Message
+              </button>
+            </form>
+          </div>
         </div>
-        <div className='flex justify-center py-12'>
+        
+        {/* Back to Top Button */}
+        <div className='flex justify-center pt-12'>
           <Link href='/'>
-            <a>
-              <div className='rounded-full shadow-lg shadow-gray-400 p-4 cursor-pointer hover:scale-110 ease-in duration-300'>
+            <a className='group'>
+              <div className='rounded-full shadow-lg bg-white p-4 cursor-pointer hover:bg-gradient-to-r hover:from-[#ff9100] hover:to-[#ffb24d] hover:text-white hover:shadow-xl transition-all duration-300 ease-in'>
                 <HiOutlineChevronDoubleUp
-                  className='text-[#5651e5]'
+                  className='text-gray-700 group-hover:text-white group-hover:scale-125 transition-transform'
                   size={30}
                 />
               </div>

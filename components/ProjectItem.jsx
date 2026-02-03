@@ -8,19 +8,35 @@ const ProjectItem = ({title, backgroundImg, projectUrl,description,click,icon}) 
   };
 
   return (
-    <div onClick={handleClick} className='grid grid-rows-2 h-[300px] w-full rounded-xl overflow-hidden group hover:bg-gradient-to-r from-[#000000] to-[#000000]'>
-      <div className='relative py-0'>
-        <Image className='h-full w-full object-cover rounded-t-xl group-hover:opacity-5' src={backgroundImg} alt={title} />
-        {icon}
-        <div className='absolute inset-0 bg-black opacity-50 group-hover:opacity-0 transition-opacity h-[300px]'></div>
-        <h1 className='group-hover:opacity-0 pb-0 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/10 text-white font-bold text-center z-10'style={{marginTop:'0px'}}>{title}</h1>
-      </div>
-      <div className='my-[-100px] hidden group-hover:block'>
-          <h3 className='text-center text-white'>{title}</h3>
-          <p className='p-4 text-center text-white'>{description}</p>
-          <h3 className='p-1 text-center text bg-white w-fit m-auto' style={{borderRadius:"1rem"}}>{click}</h3>
+    <div onClick={handleClick} className='group cursor-pointer'>
+      <div className='relative overflow-hidden rounded-lg bg-white shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1'>
+        {/* Image Container */}
+        <div className='relative h-48 w-full overflow-hidden bg-gray-200'>
+          <Image 
+            className='h-full w-full object-cover group-hover:scale-105 transition-transform duration-300' 
+            src={backgroundImg} 
+            alt={title} 
+          />
+          <div className='absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-0 group-hover:opacity-60 transition-opacity duration-300'></div>
+        </div>
+        
+        {/* Content Container */}
+        <div className='p-6'>
+          <h3 className='text-lg font-bold text-gray-900 mb-2 group-hover:text-[#ff9100] transition-colors'>{title}</h3>
+          <p className='text-sm text-gray-600 line-clamp-3 mb-4 leading-relaxed'>{description}</p>
+          
+          {/* Button */}
+          <div className='flex items-center justify-between'>
+            <span className='inline-flex items-center px-3 py-1.5 bg-gradient-to-r from-[#ff9100] to-[#ffb24d] text-white text-xs font-semibold rounded-lg group-hover:shadow-lg transition-shadow'>
+              {click}
+              <svg className='w-3 h-3 ml-1 group-hover:translate-x-1 transition-transform' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M9 5l7 7-7 7' />
+              </svg>
+            </span>
+          </div>
         </div>
       </div>
+    </div>
   )
 }
 

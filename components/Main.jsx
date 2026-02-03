@@ -124,10 +124,10 @@ const Main = () => {
       <NavBar/>
       <div className='max-w-[900px] w-full h-full mx-auto p-2 flex justify-center items-center'>
       <div>
-          <p className='uppercase text-sm tracking-widest text-800'>
+          <p className='uppercase text-sm tracking-widest text-[#ff9100] font-semibold'>
             Empowering Lives through AI  
           </p><br></br><br></br>
-          <h1 className='py-1 font-name' style={{color:'var(--text-default)'}}>Divyam Chandak</h1>
+          <h1 className='py-1 font-name text-5xl md:text-7xl font-bold' style={{color:'var(--text-default)'}}>Divyam Chandak</h1>
 
           {/* static intro removed — details are shown in the scrolling ticker below */}
 

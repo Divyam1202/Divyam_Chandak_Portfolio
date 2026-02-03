@@ -1,0 +1,4 @@
+// Research.jsx.bak — backup file. Replaced by Research.jsx. Keeping empty module to avoid accidental parsing errors.
+// If you need the previous full content again, restore from git history instead of keeping a .bak file in the components folder.
+
+export default null

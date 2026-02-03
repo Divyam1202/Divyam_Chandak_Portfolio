@@ -120,14 +120,14 @@ const Main = () => {
   }, []);
 
   return (
-<div id="home" className="w-full h-screen text-center hero-bg" style={{backgroundSize: "cover",backgroundPosition: "center"}}>
+<div id="home" className="w-full h-screen text-center flex flex-col" style={{background: "linear-gradient(135deg, #f5f7fa 0%, #f0f4f9 50%, #ffffff 100%)", backgroundAttachment: "fixed"}}>
       <NavBar/>
       <div className='max-w-[900px] w-full h-full mx-auto p-2 flex justify-center items-center'>
       <div>
-          <p className='uppercase text-sm tracking-widest text-800'>
-            Empowering Lives through AI  
+          <p className='uppercase text-sm tracking-widest text-[#ff9100] font-bold animate-pulse'>
+            Crafting Intelligent Solutions  
           </p><br></br><br></br>
-          <h1 className='py-1 font-name' style={{color:'var(--text-default)'}}>Divyam Chandak</h1>
+          <h1 className='py-4 font-name text-6xl md:text-7xl font-black bg-gradient-to-r from-[#0f172a] via-[#1a2d4d] to-[#ff9100] bg-clip-text text-transparent'>Divyam Chandak</h1>
 
           {/* static intro removed — details are shown in the scrolling ticker below */}
 

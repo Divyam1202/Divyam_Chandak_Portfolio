@@ -85,7 +85,7 @@ body {
 
 @layer base {
   body {
-    @apply bg-[#ecf0f3] text-[#1f2937] tracking-wide
+    @apply bg-gradient-to-br from-[#f5f7fa] via-[#f0f4f9] to-[#ffffff] text-[#1f2937] tracking-wide
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -93,13 +93,13 @@ body {
   }
 
   h1 {
-    @apply text-4xl sm:text-5xl md:text-6xl font-[Raleway]
+    @apply text-5xl sm:text-6xl md:text-7xl font-[Raleway] font-black
   }
 
   h2 {
     /* Headings use Momo Trust Display when available, fallback to bold system font */
     font-family: 'Momo Trust Display', -apple-system, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    @apply text-3xl sm:text-4xl
+    @apply text-4xl sm:text-5xl font-bold text-gray-900
   }
   
   li {

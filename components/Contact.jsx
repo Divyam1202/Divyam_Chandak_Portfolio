@@ -34,15 +34,17 @@ const ContactPhone = () => {
 
 const Contact = () => {
   return (
-    <div id='contact' className='w-full h-full' style={{backgroundColor:"#ffffff"}}>
-      <div className='max-w-[1240px] m-auto px-2 py-16 w-full '>
-        <p className='text-xl tracking-widest uppercase text-[#ff9100]'>
-          Contact
+    <div id='contact' className='w-full h-full' style={{backgroundColor:"#f5f7fa"}}>
+      <div className='max-w-[1240px] m-auto px-2 py-20 w-full '>
+        <p className='text-xl tracking-widest uppercase text-[#ff9100] font-bold'>
+          Get In Touch
         </p>
-        <h2 className='py-4'>Get In Touch</h2>
+        <h2 className='py-4 text-5xl md:text-6xl font-black'>Let&apos;s Connect</h2>
+        <p className='text-gray-600 max-w-2xl mb-12 text-lg'>Have a question or want to collaborate? I'd love to hear from you. Feel free to reach out through any of the channels below.</p>
+        
         <div className='grid lg:grid-cols-5 gap-8'>
-          {/* left */}
-          <div className='col-span-3 lg:col-span-2 w-full h-full shadow-xl shadow-gray-400 rounded-xl p-4'>
+          {/* Profile Card */}
+          <div className='lg:col-span-2 bg-white rounded-xl shadow-lg hover:shadow-2xl overflow-hidden border border-gray-100 transition-shadow'>
             <div className='lg:p-4 h-full '>
               <div>
                 <Image

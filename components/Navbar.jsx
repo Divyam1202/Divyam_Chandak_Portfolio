@@ -46,10 +46,10 @@ const Navbar = () => {
 
   return (
     <div
-    style={{backdropFilter: "blur(10px)"}}
+    style={{backdropFilter: "blur(20px)", background: "rgba(255, 255, 255, 0.88)"}}
       className={
         shadow
-          ? 'fixed w-full h-20 shadow-xl z-[100] ease-in-out duration-300'
+          ? 'fixed w-full h-20 shadow-lg z-[100] ease-in-out duration-300 border-b border-gray-100'
           : 'fixed w-full h-20 z-[100]'
       }
     >

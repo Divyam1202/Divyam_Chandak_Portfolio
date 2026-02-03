@@ -15,13 +15,14 @@ import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
 
 const Projects = () => {
   return (
-    <div id='projects' className='w-full h-full' style={{backgroundColor:"#ffffff"}}>
-      <div className='max-w-[1240px] mx-auto px-2 py-16 mb-[32px]'>
-        <p className='text-xl tracking-widest uppercase text-[#ff9100]'>
-          Projects
+    <div id='projects' className='w-full h-full' style={{backgroundColor:"#f5f7fa"}}>
+      <div className='max-w-[1240px] mx-auto px-2 py-20 mb-[32px]'>
+        <p className='text-xl tracking-widest uppercase text-[#ff9100] font-semibold'>
+          Portfolio
         </p>
-        <h2 className='py-4'>What I&apos;ve Built</h2>
-        <div className='grid md:grid-cols-2 gap-4 p-0'>
+        <h2 className='py-4 text-5xl md:text-6xl font-black'>What I&apos;ve Built</h2>
+        <p className='text-gray-600 max-w-2xl mt-4 text-lg'>Cutting-edge AI and ML projects spanning computer vision, NLP, and deep learning. Each demonstrates real-world applications and innovative solutions.</p>
+        <div className='grid md:grid-cols-2 gap-6 p-0 mt-12'>
         <ProjectItem
             title='CLIP'
             backgroundImg={clip}

@@ -3,9 +3,112 @@ import React from 'react';
 import dpai from '../public/assets/skills/dpai.png';
 import google from '../public/assets/skills/google.png'
 
+const ExperienceTimeline = () => {
+  const experiences = [
+    {
+      company: 'SMARTQR TECHNOLOGIES PVT LTD',
+      role: 'Machine Learning Engineer',
+      location: 'Pune, India',
+      period: 'Jun 2025 – Present',
+      duration: '0 mons',
+      achievements: [
+        'Engineered end-to-end ML solutions with TensorFlow',
+        'Improved model robustness with advanced computer vision'
+      ]
+    },
+    {
+      company: 'CREATOR RESEARCH PVT LTD',
+      role: 'Full Stack Intern',
+      location: 'Remote',
+      period: 'Aug 2024 – Dec 2024',
+      duration: '5 mons',
+      achievements: [
+        'Architected full-stack e-learning platform using React & Node.js',
+        'Enhanced security with OAuth2 and boosted completion by 30%'
+      ]
+    },
+    {
+      company: 'INTEGRATED ACTIVE MONITORING PVT LTD',
+      role: 'Python Developer',
+      location: 'Pune, India',
+      period: 'Aug 2023 – Apr 2024',
+      duration: '9 mons',
+      achievements: [
+        'Developed IoT backend and BLE Gateway Network',
+        'Improved system efficiency by 15% with batching & compression'
+      ]
+    }
+  ];
+
+  return (
+    <section id='experience' className='w-full py-20' style={{backgroundColor: '#f5f7fa'}}>
+      <div className='max-w-[1240px] mx-auto px-2'>
+        <div className='text-center mb-12'>
+          <p className='text-xl tracking-widest uppercase text-[#ff9100] font-bold'>Experience</p>
+          <h2 className='text-5xl md:text-6xl font-black mt-4'>Career Journey</h2>
+          <p className='text-gray-600 text-lg mt-4 max-w-2xl mx-auto'>My professional journey and key milestones</p>
+        </div>
+
+        {/* Vertical Timeline - Simple Style */}
+        <div className='relative max-w-3xl mx-auto'>
+          {/* Left connecting line */}
+          <div className='absolute left-6 md:left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-[#ff9100] via-[#ffb24d] to-[#ff9100]'></div>
+
+          {/* Timeline items */}
+          <div className='space-y-8'>
+            {experiences.map((exp, idx) => (
+              <div key={idx} className='relative pl-24 md:pl-32'>
+                {/* Timeline dot */}
+                <div className='absolute left-0 md:left-1 top-2 w-12 h-12 md:w-14 md:h-14 rounded-full bg-gradient-to-br from-[#ff9100] to-[#ffb24d] flex items-center justify-center border-4 border-white shadow-lg'>
+                  <span className='text-white font-black text-lg'>{idx + 1}</span>
+                </div>
+
+                {/* Content card */}
+                <div className='bg-white rounded-xl p-6 md:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-[#ff9100] hover:-translate-y-1'>
+                  <div className='mb-4'>
+                    <h3 className='text-[#ff9100] text-sm font-bold uppercase tracking-widest'>{exp.company}</h3>
+                    <p className='text-xl md:text-2xl font-black text-gray-900 mt-1'>{exp.role}</p>
+                  </div>
+
+                  <div className='space-y-2 mb-4 text-sm text-gray-600'>
+                    <p className='flex items-center gap-2'>
+                      <span className='text-[#ff9100]'>📍</span>
+                      {exp.location}
+                    </p>
+                    <p className='flex items-center gap-2'>
+                      <span className='text-[#ff9100]'>📅</span>
+                      {exp.period}
+                    </p>
+                    <p className='flex items-center gap-2'>
+                      <span className='text-[#ff9100]'>⏱️</span>
+                      {exp.duration}
+                    </p>
+                  </div>
+
+                  <div className='border-t border-gray-200 pt-4'>
+                    <p className='text-xs uppercase tracking-widest font-bold text-gray-700 mb-3'>Key Achievements</p>
+                    <ul className='space-y-2'>
+                      {exp.achievements.map((achievement, aidx) => (
+                        <li key={aidx} className='flex gap-2 text-sm text-gray-700'>
+                          <span className='text-[#ff9100] font-bold flex-shrink-0'>✓</span>
+                          <span>{achievement}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const Skills = () => {
   return (
-    <section id='skills' className='w-full h-full mb-[100px]' style={{backgroundColor: "#ffff"}}>
+    <section id='skills' className='w-full h-full mb-[100px]' style={{backgroundColor: "#f5f7fa"}}>
       {/* eslint-disable-next-line react/no-unknown-property */}
       <style jsx>{`
         @keyframes vibrate {
@@ -20,76 +123,13 @@ const Skills = () => {
           animation: vibrate 0.35s linear;
         }
       `}</style>
-      <div className='max-w-[1240px] mx-auto flex flex-col justify-center h-full'>
-        <h2 className='py-4'>Experience & Certifications</h2>
+      
+      {/* Experience Timeline */}
+      <ExperienceTimeline />
 
-        {/* EXPERIENCE SECTION */}
-        <section id='experience'>
-          <p className='text-xl tracking-widest uppercase text-[#ff9100] p-4'>
-            Experience
-          </p>
-
-          <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8' style={{ marginBottom: '50px' }}>
-            {/* SMARTQRTECHNOLOGIESPVTLTD */}
-            <div className='h-full p-0' data-sr-id='17'>
-              <div className='h-full p-4 rounded-xl hover:scale-105 ease-in duration-300' style={{ borderRadius: '1.5rem', backgroundColor: '#f1f3f4', boxShadow: '0 0 25px rgba(0, 0, 0, 0.1)' }}>
-                <div className='flex flex-col h-full justify-between'>
-                  <div>
-                    <h3 className='pl-4' style={{ fontSize: '22px' }}>SMARTQR TECHNOLOGIES PVT LTD</h3>
-                    <h4 className='pl-4' style={{ fontSize: '18px' }}>Machine Learning Engineer</h4>
-                    <h5 className='p-4'>Pune, India · Jun 2025 – Present</h5>
-                    <p className='p-4'>
-                      • Engineered end-to-end Machine Learning solutions by developing and deploying TensorFlow models for image recognition and building scalable data pipelines.
-                      <br />• Improved model robustness against image distortion by researching and implementing advanced computer vision algorithms.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* CREATOR RESEARCHPVTLTD */}
-            <div className='h-full p-0' data-sr-id='17'>
-              <div className='h-full p-4 rounded-xl hover:scale-105 ease-in duration-300' style={{ borderRadius: '1.5rem', backgroundColor: '#f1f3f4', boxShadow: '0 0 25px rgba(0, 0, 0, 0.1)' }}>
-                <div className='flex flex-col h-full justify-between'>
-                  <div>
-                    <h3 className='pl-4' style={{ fontSize: '22px' }}>CREATOR RESEARCH PVT LTD</h3>
-                    <h4 className='pl-4' style={{ fontSize: '18px' }}>Full Stack Intern</h4>
-                    <h5 className='p-4'>Remote · Aug 2024 – Dec 2024</h5>
-                    <p className='p-4'>
-                      • Architected a full-stack e-learning platform (live demo) using React, Node.js, and MongoDB, improving API response time by 40%.
-                      <br />• Enhanced platform security with OAuth2 authorization and developed analytics dashboards that boosted course completion rates by 30%.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* INTEGRATED ACTIVE MONITORING PVT LTD */}
-            <div className='h-full p-0' data-sr-id='17'>
-              <div className='h-full p-4 rounded-xl hover:scale-105 ease-in duration-300' style={{ borderRadius: '1.5rem', backgroundColor: '#f1f3f4', boxShadow: '0 0 25px rgba(0, 0, 0, 0.1)' }}>
-                <div className='flex flex-col h-full justify-between'>
-                  <div>
-                    <h3 className='pl-4' style={{ fontSize: '22px' }}>INTEGRATED ACTIVE MONITORING PVT LTD</h3>
-                    <h4 className='pl-4' style={{ fontSize: '18px' }}>Python Developer</h4>
-                    <h5 className='p-4'>Pune, India · Aug 2023 – Apr 2024</h5>
-                    <p className='p-4'>
-                      • Developed an IoT backend and BLE Gateway Network on a Raspberry Pi server to enable real-time device connectivity and telemetry ingestion.
-                      <br />• Implemented reliable BLE scanning and GATT interactions using Python (BLE library), and designed a lightweight message pipeline to forward sensor data to the cloud via MQTT/HTTP.
-                      <br />• Implemented batching, compression and retry logic which improved system efficiency by 15% and reduced end-to-end data latency by 20%.
-                      <br />• Wrote automated tests and monitoring scripts, documented the deployment on Raspberry Pi, and published code snippets and instructions for reproducible local setup.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* CERTIFICATIONS SECTION */}
-        <section id='certifications'>
-          <p className='text-xl tracking-widest uppercase text-[#ff9100] p-4'>
-            Certificates
-          </p>
+      {/* Certifications Section */}
+      <div className='max-w-[1240px] mx-auto flex flex-col justify-center h-full px-2 py-20'>
+        <h3 className='py-4 text-4xl font-bold mb-4'>Certifications</h3>
 
           <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8'>
             {/* Deloitte */}
@@ -172,7 +212,6 @@ const Skills = () => {
               </div>
             </div>
           </div>
-        </section>
       </div>
     </section>
   );

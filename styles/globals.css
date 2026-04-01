@@ -2,16 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Concert+One&family=Orbitron:wght@500;700;800&family=Raleway:wght@300;400;500;600;700;800;900&display=swap');
 
-/* Google font for the name (Concert One) + keep Raleway as fallback for body */
-@import url('https://fonts.googleapis.com/css2?family=Concert+One&family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap');
-
-/*
-  Local fonts (optional): place your .woff/.woff2 files in public/fonts/
-  - Freeman (Freeman.woff2 / Freeman.woff)
-  - Momo Trust Display (MomoTrustDisplay.woff2 / MomoTrustDisplay.woff)
-  If you don't have these files, the CSS will fall back to system fonts.
-*/
 @font-face {
   font-family: 'Freeman';
   src: url('/fonts/Freeman.woff2') format('woff2'),
@@ -30,7 +22,6 @@
   font-display: swap;
 }
 
-/* Optional: Google SixtyFour for the ticker/animation (place GoogleSixtyFour.woff2 in public/fonts/) */
 @font-face {
   font-family: 'Google SixtyFour';
   src: url('/fonts/GoogleSixtyFour.woff2') format('woff2'),
@@ -40,134 +31,262 @@
   font-display: swap;
 }
 
-html {
-  scroll-behavior: smooth;
-  font-family: 'Raleway', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+:root {
+  --bg-main: #07111f;
+  --bg-secondary: #0c1830;
+  --panel: rgba(10, 25, 45, 0.82);
+  --panel-strong: rgba(8, 19, 36, 0.95);
+  --text-main: #e8f0ff;
+  --text-soft: #95a8c7;
+  --accent: #ff8a2a;
+  --accent-2: #59f0c5;
+  --accent-3: #57b6ff;
+  --border: rgba(87, 182, 255, 0.26);
+  --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  --scroll-line-height: 4.5rem;
+  --scroll-duration: 30s;
+  --scroll-steps: 6;
 }
 
-/* Theme variables and softer background to replace stark white/black */
-:root {
-  --bg-top: #f7f9fc; /* light neutral */
-  --bg-bottom: #ffffff; /* card background */
-  --page-accent: #ff9100; /* orange accent used in site */
-  --text-default: #0f172a; /* dark slate for primary text */
-  --muted: #6b7280; /* muted text */
+html {
+  scroll-behavior: smooth;
+  background: var(--bg-main);
+  font-family: 'Raleway', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
 body {
-  background: linear-gradient(180deg, var(--bg-top), var(--bg-bottom));
-  color: var(--text-default);
+  min-height: 100vh;
+  color: var(--text-main);
+  background:
+    radial-gradient(circle at top left, rgba(89, 240, 197, 0.12), transparent 28%),
+    radial-gradient(circle at top right, rgba(255, 138, 42, 0.13), transparent 24%),
+    linear-gradient(rgba(87, 182, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(87, 182, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(180deg, #07111f 0%, #081427 35%, #0b1730 100%);
+  background-size: auto, auto, 32px 32px, 32px 32px, auto;
+  position: relative;
 }
 
-/* Hero background with subtle diagonal texture and soft accent glow */
-.hero-bg {
-  background-image: linear-gradient(180deg, rgba(255,145,0,0.03), rgba(112,157,255,0.02)),
-                    radial-gradient(800px 200px at 10% 10%, rgba(255,145,0,0.03), transparent 20%),
-                    linear-gradient(180deg, transparent, rgba(255,255,255,0.6));
-  background-repeat: no-repeat;
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent 35%, rgba(255, 255, 255, 0.015));
+  mix-blend-mode: screen;
+  opacity: 0.45;
 }
 
-/* Card surface used across About, Skills, and certificates to lift content off the page */
-.card-surface {
-  background: linear-gradient(180deg, #ffffff, #fbfbfd);
-  box-shadow: 0 8px 24px rgba(16,24,40,0.06);
-  border-radius: 1rem;
+a {
+  transition: color 180ms ease, transform 180ms ease;
 }
-
-/* Accent button style */
-.btn-accent {
-  @apply inline-flex items-center justify-center px-4 py-2 rounded-md text-white font-medium shadow;
-  background: linear-gradient(90deg, var(--page-accent), #ffb24d);
-}
-
-/* Muted text utility */
-.text-muted { color: var(--muted); }
 
 @layer base {
   body {
-    @apply bg-gradient-to-br from-[#f5f7fa] via-[#f0f4f9] to-[#ffffff] text-[#1f2937] tracking-wide
+    @apply tracking-wide;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-bold
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--text-main);
+    @apply font-bold;
   }
 
   h1 {
-    @apply text-5xl sm:text-6xl md:text-7xl font-[Raleway] font-black
+    @apply text-5xl sm:text-6xl md:text-7xl;
   }
 
   h2 {
-    /* Headings use Momo Trust Display when available, fallback to bold system font */
-    font-family: 'Momo Trust Display', -apple-system, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    @apply text-4xl sm:text-5xl font-bold text-gray-900
+    font-family: 'Orbitron', 'Momo Trust Display', sans-serif;
+    @apply text-4xl sm:text-5xl;
   }
-  
+
   li {
-    @apply cursor-pointer
+    @apply cursor-pointer;
   }
 
   button {
-    @apply shadow-xl shadow-gray-400 rounded-xl uppercase bg-gradient-to-r from-[#5651e5] to-[#709dff] text-white
+    @apply font-semibold;
   }
 }
 
-/* Utility classes to apply the requested fonts in components */
 .font-name {
-  /* Concert One for the primary display name */
-  font-family: 'Concert One', 'Momo Trust Display', cursive;
+  font-family: 'Orbitron', 'Concert One', sans-serif;
 }
 
 .font-summary {
-  /* Freeman for the summary paragraph under the name; fallback to serif */
   font-family: 'Freeman', Georgia, 'Times New Roman', serif;
 }
 
 .font-heading {
-  /* Use for section headings when you want the display look */
-  font-family: 'Momo Trust Display', 'Concert One', -apple-system, system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Orbitron', 'Momo Trust Display', sans-serif;
 }
 
-/* Ticker font utility (uses Google SixtyFour when available) */
 .font-ticker {
-  font-family: 'Google SixtyFour', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  font-family: 'Orbitron', 'Google SixtyFour', ui-sans-serif, system-ui, sans-serif;
 }
 
-/* Scrollable lines animation used in hero to cycle short details or certifications */
-/* Scrollable lines animation used in hero to cycle short details or certifications */
-:root {
-  /* Visible line height. Increase this to give two-line items room. */
-  /* Reduce visible slot height slightly to tighten gaps between items. */
-  --scroll-line-height: 4.5rem; /* reduced by 0.5rem to make gaps ~0.5 line smaller */
-  /* Total time for one full loop. Increase to slow down. With steps animation
-    this becomes the per-cycle time; each step = duration / number_of_items. */
-  --scroll-duration: 30s; /* increased so each item has more on-screen time */
-  /* Number of unique items in one list (not counting the duplicated copy). If
-    you change the number of unique scroll items, update --scroll-steps accordingly. */
-  --scroll-steps: 6;
+.section-kicker {
+  color: var(--accent);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.game-panel {
+  background: linear-gradient(180deg, rgba(11, 26, 48, 0.92), rgba(8, 18, 35, 0.92));
+  border: 1px solid var(--border);
+  border-radius: 1.5rem;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(12px);
+}
+
+.game-panel-soft {
+  background: linear-gradient(180deg, rgba(12, 27, 48, 0.72), rgba(7, 16, 31, 0.78));
+  border: 1px solid rgba(89, 240, 197, 0.18);
+  border-radius: 1.25rem;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+}
+
+.hud-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(89, 240, 197, 0.28);
+  background: rgba(10, 22, 39, 0.78);
+  color: var(--text-main);
+  padding: 0.5rem 0.9rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.pixel-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 0.9rem;
+  padding: 0.9rem 1.2rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #07111f;
+  background: linear-gradient(90deg, var(--accent), #ffb54d);
+  box-shadow: 0 12px 24px rgba(255, 138, 42, 0.22);
+}
+
+.pixel-button:hover {
+  transform: translateY(-2px);
+}
+
+.pixel-button.secondary {
+  color: var(--text-main);
+  background: linear-gradient(90deg, rgba(89, 240, 197, 0.18), rgba(87, 182, 255, 0.22));
+  border: 1px solid rgba(89, 240, 197, 0.25);
+  box-shadow: none;
+}
+
+.stat-card {
+  background: linear-gradient(180deg, rgba(10, 25, 45, 0.88), rgba(8, 18, 35, 0.88));
+  border: 1px solid rgba(255, 138, 42, 0.18);
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.quest-card {
+  background: linear-gradient(180deg, rgba(11, 27, 48, 0.94), rgba(8, 18, 35, 0.94));
+  border: 1px solid rgba(87, 182, 255, 0.22);
+  border-radius: 1.4rem;
+  box-shadow: var(--shadow);
+}
+
+.quest-card:hover {
+  border-color: rgba(89, 240, 197, 0.4);
+  transform: translateY(-6px);
+}
+
+.terminal-line {
+  color: var(--text-soft);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.accent-text {
+  color: var(--accent-2);
+}
+
+.muted-text {
+  color: var(--text-soft);
+}
+
+.xp-track {
+  width: 100%;
+  height: 0.8rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+}
+
+.xp-fill {
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent-3));
+  box-shadow: 0 0 24px rgba(89, 240, 197, 0.3);
+}
+
+@keyframes float-card {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.float-card {
+  animation: float-card 5s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 rgba(89, 240, 197, 0.18);
+  }
+  50% {
+    box-shadow: 0 0 28px rgba(89, 240, 197, 0.22);
+  }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2.8s ease-in-out infinite;
 }
 
 @keyframes scroll-vertical {
-  /* Continuous linear scroll from 0 to -50% (one copy of the list). This
-     produces a smooth, uninterrupted scrolling effect with no holds. */
   0% { transform: translate3d(0, 0%, 0); }
   100% { transform: translate3d(0, -50%, 0); }
 }
 
 .scroll-viewport {
-  height: var(--scroll-line-height); /* show one line at a time */
+  height: var(--scroll-line-height);
   overflow: hidden;
   position: relative;
+  border-radius: 1rem;
+  border: 1px solid rgba(87, 182, 255, 0.24);
+  background: rgba(8, 18, 35, 0.75);
 }
 
 .scroll-list {
   display: flex;
   flex-direction: column;
-  /* duplicate the content in markup (list+list) and translate -50% to scroll one copy */
-  /* Use a smooth keyframed animation that holds and transitions between positions.
-    Apply an ease-in-out timing curve so transitions feel natural (smooth scrolling
-    with gentle acceleration/deceleration). */
-  /* Use a linear timing function so the scroll speed stays constant throughout.
-     translate3d is used above for GPU-accelerated, consistent motion. */
   animation: scroll-vertical var(--scroll-duration) linear infinite;
   will-change: transform;
 }
@@ -178,6 +297,7 @@ body {
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  font-family: 'Google SixtyFour', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-  padding: 0.125rem 0; /* reduced breathing room to further tighten gaps */
+  font-family: 'Orbitron', 'Google SixtyFour', ui-sans-serif, system-ui, sans-serif;
+  padding: 0.125rem 0.8rem;
+  color: var(--text-main);
 }

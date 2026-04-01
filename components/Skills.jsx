@@ -75,112 +75,56 @@ const certifications = [
   },
 ];
 
-const ExperienceTimeline = () => {
+const Skills = () => {
   return (
-    <section id='experience' className='w-full py-20' style={{ backgroundColor: '#f5f7fa' }}>
-      <div className='max-w-[1240px] mx-auto px-2'>
-        <div className='text-center mb-12'>
-          <p className='text-xl tracking-widest uppercase text-[#ff9100] font-bold'>Experience</p>
-          <h2 className='text-5xl md:text-6xl font-black mt-4'>Career Journey</h2>
-          <p className='text-gray-600 text-lg mt-4 max-w-2xl mx-auto'>My professional journey and key milestones</p>
-        </div>
-
-        <div className='relative max-w-3xl mx-auto'>
-          <div className='absolute left-6 md:left-8 top-0 bottom-0 w-1 bg-gradient-to-b from-[#ff9100] via-[#ffb24d] to-[#ff9100]'></div>
-
-          <div className='space-y-8'>
+    <section id='skills' className='w-full px-3 py-16'>
+      <div className='max-w-[1240px] mx-auto grid gap-10'>
+        <div className='game-panel p-6 md:p-8'>
+          <p className='section-kicker'>Career Tree</p>
+          <h2 className='mt-3'>Experience Timeline</h2>
+          <div className='grid lg:grid-cols-3 gap-6 mt-8'>
             {experiences.map((exp, idx) => (
-              <div key={exp.company} className='relative pl-24 md:pl-32'>
-                <div className='absolute left-0 md:left-1 top-2 w-12 h-12 md:w-14 md:h-14 rounded-full bg-gradient-to-br from-[#ff9100] to-[#ffb24d] flex items-center justify-center border-4 border-white shadow-lg'>
-                  <span className='text-white font-black text-lg'>{idx + 1}</span>
+              <article key={exp.company} className='game-panel-soft p-6'>
+                <div className='flex items-center justify-between'>
+                  <span className='hud-chip'>Stage {idx + 1}</span>
+                  <span className='text-sm uppercase tracking-[0.16em] text-[#59f0c5]'>{exp.duration}</span>
                 </div>
-
-                <div className='bg-white rounded-xl p-6 md:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-[#ff9100] hover:-translate-y-1'>
-                  <div className='mb-4'>
-                    <h3 className='text-[#ff9100] text-sm font-bold uppercase tracking-widest'>{exp.company}</h3>
-                    <p className='text-xl md:text-2xl font-black text-gray-900 mt-1'>{exp.role}</p>
-                  </div>
-
-                  <div className='space-y-2 mb-4 text-sm text-gray-600'>
-                    <p className='flex items-center gap-2'>
-                      <span className='text-[#ff9100] font-semibold min-w-[72px]'>Location</span>
-                      <span>{exp.location}</span>
-                    </p>
-                    <p className='flex items-center gap-2'>
-                      <span className='text-[#ff9100] font-semibold min-w-[72px]'>Period</span>
-                      <span>{exp.period}</span>
-                    </p>
-                    <p className='flex items-center gap-2'>
-                      <span className='text-[#ff9100] font-semibold min-w-[72px]'>Duration</span>
-                      <span>{exp.duration}</span>
-                    </p>
-                  </div>
-
-                  <div className='border-t border-gray-200 pt-4'>
-                    <p className='text-xs uppercase tracking-widest font-bold text-gray-700 mb-3'>Key Achievements</p>
-                    <ul className='space-y-2'>
-                      {exp.achievements.map((achievement) => (
-                        <li key={achievement} className='flex gap-2 text-sm text-gray-700'>
-                          <span className='text-[#ff9100] font-bold flex-shrink-0'>-</span>
-                          <span>{achievement}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                <h3 className='text-2xl font-heading mt-5'>{exp.role}</h3>
+                <p className='text-sm uppercase tracking-[0.18em] text-[#ff8a2a] mt-2'>{exp.company}</p>
+                <div className='terminal-line mt-5 space-y-2'>
+                  <p><span className='accent-text'>Location:</span> {exp.location}</p>
+                  <p><span className='accent-text'>Period:</span> {exp.period}</p>
                 </div>
-              </div>
+                <ul className='mt-5 space-y-3'>
+                  {exp.achievements.map((achievement) => (
+                    <li key={achievement} className='terminal-line flex gap-3'>
+                      <span className='text-[#59f0c5]'>+</span>
+                      <span>{achievement}</span>
+                    </li>
+                  ))}
+                </ul>
+              </article>
             ))}
           </div>
         </div>
-      </div>
-    </section>
-  );
-};
 
-const Skills = () => {
-  return (
-    <section id='skills' className='w-full h-full mb-[100px]' style={{ backgroundColor: '#f5f7fa' }}>
-      {/* eslint-disable-next-line react/no-unknown-property */}
-      <style jsx>{`
-        @keyframes vibrate {
-          0% { transform: translateX(0); }
-          20% { transform: translateX(-1px); }
-          40% { transform: translateX(1px); }
-          60% { transform: translateX(-1px); }
-          80% { transform: translateX(1px); }
-          100% { transform: translateX(0); }
-        }
-        .vibrate:hover {
-          animation: vibrate 0.35s linear;
-        }
-      `}</style>
-
-      <ExperienceTimeline />
-
-      <div id='certifications' className='max-w-[1240px] mx-auto flex flex-col justify-center h-full px-2 py-20'>
-        <h3 className='py-4 text-4xl font-bold mb-4'>Certifications</h3>
-
-        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8'>
-          {certifications.map((cert) => (
-            <div key={cert.title} className='p-0 shadow-xl hover:scale-105 ease-in duration-300' style={{ borderRadius: '1.5rem' }}>
-              <div className='p-4' style={{ borderRadius: '1.5rem', background: '#f2f2f2' }}>
-                <div className='flex flex-col items-start'>
-                  <h3 className='text-left text-[20px]'>{cert.title}</h3>
+        <div id='certifications' className='game-panel p-6 md:p-8'>
+          <p className='section-kicker'>Achievements</p>
+          <h2 className='mt-3'>Certification Unlocks</h2>
+          <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8'>
+            {certifications.map((cert) => (
+              <article key={cert.title} className='game-panel-soft p-5 flex items-center gap-4'>
+                <Image src={cert.image} width={52} height={52} alt={cert.alt} />
+                <div>
+                  <h3 className='text-lg font-heading'>{cert.title}</h3>
+                  <p className='terminal-line mt-2'>{cert.period}</p>
+                  <a href={cert.href} target='_blank' rel='noreferrer' className='inline-flex mt-3 text-[#59f0c5] uppercase tracking-[0.16em] text-sm font-semibold hover:text-[#ff8a2a]'>
+                    View Certificate
+                  </a>
                 </div>
-              </div>
-              <div className='p-4 rounded-b-xl flex items-center justify-center gap-4' style={{ borderRadius: '1.5rem' }}>
-                <Image className='vibrate' src={cert.image} width={48} height={48} alt={cert.alt} />
-                <div className='text-sm text-left'>
-                  <div>{cert.period}</div>
-                  <div className='mt-1'>
-                    <a href={cert.href} target='_blank' rel='noreferrer' className='text-blue-600 underline'>
-                      Certificate
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
+              </article>
+            ))}
+          </div>
         </div>
       </div>
     </section>

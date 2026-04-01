@@ -1,114 +1,108 @@
-﻿import Image from 'next/image';
-import Link from 'next/link';
 import React from 'react';
-import translationimg from '../public/assets/projects/translation.png'
-import imagecaption from '../public/assets/projects/image_captioning.jpeg'
-import colorextraction from '../public/assets/projects/material_you.png'
-import emotion from '../public/assets/projects/emotion.jpg'
-import llama from '../public/assets/projects/llama.png'
-import clip from '../public/assets/projects/clip.png'
-import tweet from '../public/assets/projects/tweet.gif'
+import translationimg from '../public/assets/projects/translation.png';
+import imagecaption from '../public/assets/projects/image_captioning.jpeg';
+import colorextraction from '../public/assets/projects/material_you.png';
+import emotion from '../public/assets/projects/emotion.jpg';
+import llama from '../public/assets/projects/llama.png';
+import clip from '../public/assets/projects/clip.png';
+import tweet from '../public/assets/projects/tweet.gif';
 import ProjectItem from './ProjectItem';
 import script from '../public/assets/projects/Script.jpg';
 import EchoSense from '../public/assets/projects/pic2audio.jpg';
-import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
+
+const projects = [
+  {
+    title: 'CLIP',
+    backgroundImg: clip,
+    projectUrl: 'https://github.com/DSCdev/OpenAI-CLIP',
+    description: 'A paper-first CLIP reimplementation in PyTorch, designed to make the original architecture easier to learn, inspect, and extend.',
+    click: 'Launch Repo',
+    badge: 'Boss Fight',
+  },
+  {
+    title: 'YouTube Llama',
+    backgroundImg: llama,
+    projectUrl: 'https://github.com/DSCdev/YouTube-Llama',
+    description: 'A retrieval-augmented local Llama system that turns any YouTube video into an interactive question-answering experience.',
+    click: 'Launch Repo',
+    badge: 'NLP Quest',
+  },
+  {
+    title: 'EchoSense',
+    backgroundImg: EchoSense,
+    projectUrl: 'https://huggingface.co/spaces/DSCdev/EchoSense',
+    description: 'A multimodal assistive platform that generates audio descriptions from images for visually impaired users.',
+    click: 'Play Demo',
+    badge: 'Patent Drop',
+  },
+  {
+    title: 'Scriptify',
+    backgroundImg: script,
+    projectUrl: 'https://huggingface.co/spaces/DSCdev/Scriptify',
+    description: 'A script generation demo built on top of ScriptForge models for creators who want fast YouTube content ideation.',
+    click: 'Play Demo',
+    badge: 'Creator Tool',
+  },
+  {
+    title: 'Hinglish Translation',
+    backgroundImg: translationimg,
+    projectUrl: 'https://github.com/DSCdev/Neurohack',
+    description: 'A TensorFlow transformer built in 24 hours to translate English into Hinglish with strong benchmark accuracy.',
+    click: 'Launch Repo',
+    badge: 'Speedrun',
+  },
+  {
+    title: 'Image Captioning',
+    backgroundImg: imagecaption,
+    projectUrl: 'https://huggingface.co/spaces/DSCdev/Image-Caption',
+    description: 'A multimodal captioning system trained from scratch on Conceptual Captions to generate natural image descriptions.',
+    click: 'Play Demo',
+    badge: 'Vision Quest',
+  },
+  {
+    title: 'Material You',
+    backgroundImg: colorextraction,
+    projectUrl: 'https://huggingface.co/spaces/DSCdev/MaterialYou',
+    description: 'A color extraction experiment inspired by Google Material You, designed to generate brand-aware palettes from imagery.',
+    click: 'Play Demo',
+    badge: 'Design Lab',
+  },
+  {
+    title: 'Emotion Recognition',
+    backgroundImg: emotion,
+    projectUrl: 'https://github.com/DSCdev/Emotion-Recognition',
+    description: 'A real-time webcam-powered emotion recognition system that maps facial expressions to seven emotional states.',
+    click: 'Launch Repo',
+    badge: 'Realtime AI',
+  },
+  {
+    title: 'Image Generation',
+    backgroundImg: tweet,
+    projectUrl: 'https://github.com/DSCdev/Image-Generation',
+    description: 'A scratch-built playground for GANs and diffusion models, focused on learning generative systems from the ground up.',
+    click: 'Launch Repo',
+    badge: 'Sandbox Mode',
+  },
+];
 
 const Projects = () => {
   return (
-    <div id='projects' className='w-full h-full' style={{backgroundColor:"#f5f7fa"}}>
-      <div className='max-w-[1240px] mx-auto px-2 py-20 mb-[32px]'>
-        <p className='text-xl tracking-widest uppercase text-[#ff9100] font-semibold'>
-          Portfolio
-        </p>
-        <h2 className='py-4 text-5xl md:text-6xl font-black'>What I&apos;ve Built</h2>
-        <p className='text-gray-600 max-w-2xl mt-4 text-lg'>Cutting-edge AI and ML projects spanning computer vision, NLP, and deep learning. Each demonstrates real-world applications and innovative solutions.</p>
-        <div className='grid md:grid-cols-2 gap-6 p-0 mt-12'>
-        <ProjectItem
-            title='CLIP'
-            backgroundImg={clip}
-            projectUrl='https://github.com/DSCdev/OpenAI-CLIP'
-            description="OpenAI has open-sourced code related to the CLIP model, but it is complicated to understand.
-            I prefer to implement it based on the paper. Additionally, I found a helpful tutorial inspired by the
-            CLIP model on Keras code examples, which assisted me in replicating the code in PyTorch."
-            click="Github !"
-            icon={<FaGithub />}
-            />
-        <ProjectItem
-            title='YouTube Llama'
-            backgroundImg={llama}
-            projectUrl='https://github.com/DSCdev/YouTube-Llama'
-            description="A question-answering chatbot for any YouTube video using Local Llama2 & Retrival Augmented Generation."
-            click="Github !"
-            icon={<FaGithub />}
-            />
-        <ProjectItem
-            title='EchoSense'
-            backgroundImg={EchoSense}
-            projectUrl='https://huggingface.co/spaces/DSCdev/EchoSense'
-            description="EchoSense is Implementation of our Patent Asstive platform for Visually Impared Person.EchoSense is a multimodality model that aims to generates Audio descriptions by looking at any given Image."
-            click="Try Now !"
-            icon={<FaGithub />}
-            />
-        <ProjectItem
-            title='Scriptify'
-            backgroundImg={script}
-            projectUrl='https://huggingface.co/spaces/DSCdev/Scriptify'
-            description="Scriptify is a Language model demo which I have built on top ScriptForge models, It allows users to generate youtube scripts."
-            click="Try Now !"
-            icon={<FaGithub />}
-            />
-          <ProjectItem
-            title='Hinglish Translation'
-            backgroundImg={translationimg}
-            projectUrl='https://github.com/DSCdev/Neurohack'
-            description='A Translation model which is built using TensorFlow in 24hr.The model follows the Transformer Architecture and is built from scratch to translate English sentences to Hinglish, model provides an accuracy of 94%.'
-            click=" GitHub "
-            icon={<FaGithub />}
-            />
-          <ProjectItem
-            title='Image Captioning'
-            backgroundImg={imagecaption}
-            projectUrl='https://huggingface.co/spaces/DSCdev/Image-Caption'
-            description='A Multimodality model for Image Captioning. The model is built from scratch using the a Vision & Language Transoformer.The dataset used to train is Conceptual Captions by Google.'
-            click=" Try Now ! "
-            />
-            <ProjectItem
-            title='Material You'
-            backgroundImg={colorextraction}
-            projectUrl='https://huggingface.co/spaces/DSCdev/MaterialYou'
-            description='This Project is an attempt to understand and recreate Googles latest update in Color-Extraction called as Material You. It will provide you with color-palette to use on your website , brand as per the main image on the website or brand.'
-            click=" Try Now ! "
-            />
+    <section id='projects' className='w-full px-3 py-16'>
+      <div className='max-w-[1240px] mx-auto'>
+        <div className='game-panel p-6 md:p-8'>
+          <p className='section-kicker'>Quest Log</p>
+          <h2 className='py-4 text-5xl md:text-6xl font-black'>Unlocked Missions</h2>
+          <p className='terminal-line max-w-2xl'>A portfolio built like a campaign map: each quest demonstrates a different class of AI system, from production tooling to multimodal demos and research-inspired implementations.</p>
+        </div>
 
-            {/* <ProjectItem
-            title='Aerial Segmentation'
-            backgroundImg={plants}
-            projectUrl='https://github.com/DSCdev/Aerial-Segmentation-Models'
-            description='The Project aims to segment Aerial Images. The main aim of the repo was to learn Semantic Segmentation.'
-            click=" GitHub "
-            /> */}
-
-            <ProjectItem
-            title='Emotion Recognition'
-            backgroundImg={emotion}
-            projectUrl='https://github.com/DSCdev/Emotion-Recognition'
-            description='The Emotion Recognition App is a real-time application that utilizes machine learning to detect and recognize human emotions from a webcam feed. The application uses a pre-trained deep learning model to classify facial expressions into seven different emotions: Angry, Disgusted, Fearful, Happy, Neutral, Sad, and Surprised. This project demonstrates the integration of computer vision and machine learning for emotion analysis.'
-            click=" Try Now ! "
-            />
-
-            <ProjectItem
-            title='Image Generation'
-            backgroundImg={tweet}
-            projectUrl='https://github.com/DSCdev/Image-Generation'
-            description='"Image Generation from Scratch" repository! This project is dedicated to building image generation models from scratch using PyTorch. In this repository, youll find both GANs (Generative Adversarial Networks) and Diffusion models implemented from the ground up.'
-            click=" GitHub "
-            />
-
+        <div className='grid md:grid-cols-2 gap-6 mt-10'>
+          {projects.map((project) => (
+            <ProjectItem key={project.title} {...project} />
+          ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
 export default Projects;
-

@@ -12,11 +12,10 @@ import Newsletter from '../components/Newsletter'
 
 export default function Home() {
   return (
-    <div style={{backgroundColor:"#ffff"}}>
+    <div>
       <Head>
         <title>Divyam Chandak</title>
         <meta name="description" content="Portfolio Website of Divyam Chandak." />
-  <link rel="icon" href="/fav.png" />
       </Head>
     <Main />
     <About />

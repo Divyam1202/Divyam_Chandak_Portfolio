@@ -17,14 +17,14 @@ const ContactPhone = () => {
       aria-expanded={open}
       aria-label='Show phone number'
       onClick={() => setOpen((v) => !v)}
-      className={`flex items-center transition-all duration-300 ease-in-out ${open ? 'w-56 rounded-xl px-3' : 'w-14 rounded-full'} justify-start`}
+      className={`flex items-center transition-all duration-300 ease-in-out ${open ? 'w-56 rounded-2xl px-3' : 'w-14 rounded-2xl'} justify-start bg-transparent`}
     >
-      <div className={`flex items-center justify-center ${open ? 'p-3' : 'p-6'} rounded-full shadow-lg shadow-gray-400 cursor-pointer bg-white text-[#5651e5] hover:scale-110 ease-in duration-300`}>
+      <div className={`flex items-center justify-center ${open ? 'p-3' : 'p-4'} rounded-2xl border border-[rgba(89,240,197,0.22)] bg-[rgba(8,18,35,0.9)] text-white hover:scale-110 ease-in duration-300`}>
         <BsFillPersonLinesFill size={20} />
       </div>
 
       <div className={`ml-3 overflow-hidden transition-all duration-300 ${open ? 'w-40 opacity-100' : 'w-0 opacity-0'}`}>
-        <span className='text-sm select-text text-black'>{phone}</span>
+        <span className='text-sm select-text text-white'>{phone}</span>
       </div>
     </button>
   );
@@ -32,88 +32,78 @@ const ContactPhone = () => {
 
 const Contact = () => {
   return (
-    <div id='contact' className='w-full h-full' style={{ backgroundColor: '#f5f7fa' }}>
-      <div className='max-w-[1240px] m-auto px-2 py-20 w-full '>
-        <p className='text-xl tracking-widest uppercase text-[#ff9100] font-bold'>Get In Touch</p>
-        <h2 className='py-4 text-5xl md:text-6xl font-black'>Let&apos;s Connect</h2>
-        <p className='text-gray-600 max-w-2xl mb-12 text-lg'>Have a question or want to collaborate? I&apos;d love to hear from you. Feel free to reach out through any of the channels below.</p>
+    <section id='contact' className='w-full px-3 py-16'>
+      <div className='max-w-[1240px] m-auto w-full game-panel p-6 md:p-8'>
+        <p className='section-kicker font-bold'>Party Invite</p>
+        <h2 className='py-4 text-5xl md:text-6xl font-black'>Let&apos;s Team Up</h2>
+        <p className='terminal-line max-w-2xl mb-12'>Have a question, idea, or interesting mission? Reach out and let&apos;s build something sharp, useful, and memorable.</p>
 
-        <div className='grid lg:grid-cols-5 gap-8'>
-          <div className='lg:col-span-2 bg-white rounded-xl shadow-lg hover:shadow-2xl overflow-hidden border border-gray-100 transition-shadow'>
-            <div className='lg:p-4 h-full '>
-              <div>
-                <Image
-                  className='rounded-xl hover:scale-105 ease-in duration-300'
-                  src={ContactImg}
-                  alt='Divyam Chandak contact profile'
-                />
-              </div>
-              <div>
-                <h2 className='py-2 font-name'>Divyam Chandak</h2>
-                <p className='font-heading'>Machine Learning Engineer</p>
-                <p className='py-4 font-summary'>
-                  Machine Learning Engineer specializing in computer vision and scalable data pipelines. Certified by Google (AI/ML) and IBM (Data Engineering).
-                </p>
-              </div>
-              <div>
-                <p className='uppercase pt-8'>Connect With Me</p>
-                <div className='flex items-center justify-between py-4'>
-                  <a
-                    href='https://www.linkedin.com/in/divyam-chandak/'
-                    target='_blank'
-                    rel='noreferrer'
-                    aria-label='Open LinkedIn profile'
-                  >
-                    <div className='rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300'>
-                      <FaLinkedinIn />
-                    </div>
-                  </a>
-                  <a
-                    href='https://github.com/Divyam1202'
-                    target='_blank'
-                    rel='noreferrer'
-                    aria-label='Open GitHub profile'
-                  >
-                    <div className='rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300'>
-                      <FaGithub />
-                    </div>
-                  </a>
+        <div className='grid lg:grid-cols-[0.8fr_1.2fr] gap-8'>
+          <div className='game-panel-soft overflow-hidden border border-[rgba(89,240,197,0.18)]'>
+            <Image className='w-full h-auto object-cover' src={ContactImg} alt='Divyam Chandak contact profile' />
+          </div>
 
-                  <a
-                    href='mailto:chandakdivyam@gmail.com'
-                    target='_blank'
-                    rel='noreferrer'
-                    aria-label='Send an email'
-                    onClick={(e) => {
-                      const gmailUrl = 'https://mail.google.com/mail/?view=cm&fs=1&to=chandakdivyam@gmail.com';
-                      const popup = window.open(gmailUrl, '_blank', 'noopener,noreferrer');
+          <div className='game-panel-soft p-6'>
+            <div className='flex flex-wrap gap-3 mb-5'>
+              <span className='hud-chip'>Open to collaboration</span>
+              <span className='hud-chip'>AI systems</span>
+              <span className='hud-chip'>Product-minded builds</span>
+            </div>
 
-                      if (popup) {
-                        e.preventDefault();
-                      }
-                    }}
-                  >
-                    <div className='rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300'>
-                      <AiOutlineMail />
-                    </div>
-                  </a>
-                  <ContactPhone />
-                </div>
+            <h3 className='text-3xl font-name'>Divyam Chandak</h3>
+            <p className='mt-2 uppercase tracking-[0.2em] text-[#59f0c5] text-sm'>Machine Learning Engineer</p>
+            <p className='terminal-line mt-5'>
+              Machine Learning Engineer specializing in computer vision and scalable data pipelines. Certified by Google (AI/ML) and IBM (Data Engineering).
+            </p>
+
+            <div className='mt-8'>
+              <p className='uppercase tracking-[0.2em] text-sm text-[#ff8a2a] mb-4'>Choose Your Channel</p>
+              <div className='flex flex-wrap items-center gap-4'>
+                <a href='https://www.linkedin.com/in/divyam-chandak/' target='_blank' rel='noreferrer' aria-label='Open LinkedIn profile'>
+                  <div className='rounded-2xl border border-[rgba(89,240,197,0.22)] bg-[rgba(8,18,35,0.9)] p-4 cursor-pointer hover:scale-110 ease-in duration-300'>
+                    <FaLinkedinIn />
+                  </div>
+                </a>
+                <a href='https://github.com/Divyam1202' target='_blank' rel='noreferrer' aria-label='Open GitHub profile'>
+                  <div className='rounded-2xl border border-[rgba(89,240,197,0.22)] bg-[rgba(8,18,35,0.9)] p-4 cursor-pointer hover:scale-110 ease-in duration-300'>
+                    <FaGithub />
+                  </div>
+                </a>
+                <a
+                  href='mailto:chandakdivyam@gmail.com'
+                  target='_blank'
+                  rel='noreferrer'
+                  aria-label='Send an email'
+                  onClick={(e) => {
+                    const gmailUrl = 'https://mail.google.com/mail/?view=cm&fs=1&to=chandakdivyam@gmail.com';
+                    const popup = window.open(gmailUrl, '_blank', 'noopener,noreferrer');
+
+                    if (popup) {
+                      e.preventDefault();
+                    }
+                  }}
+                >
+                  <div className='rounded-2xl border border-[rgba(89,240,197,0.22)] bg-[rgba(8,18,35,0.9)] p-4 cursor-pointer hover:scale-110 ease-in duration-300'>
+                    <AiOutlineMail />
+                  </div>
+                </a>
+                <ContactPhone />
               </div>
             </div>
           </div>
         </div>
-        <div className='flex justify-center py-12'>
+
+        <div className='flex justify-center pt-12'>
           <Link href='/'>
             <a aria-label='Back to top'>
-              <div className='rounded-full shadow-lg shadow-gray-400 p-4 cursor-pointer hover:scale-110 ease-in duration-300'>
-                <HiOutlineChevronDoubleUp className='text-[#5651e5]' size={30} />
+              <div className='rounded-2xl border border-[rgba(89,240,197,0.22)] bg-[rgba(8,18,35,0.9)] p-4 cursor-pointer hover:scale-110 ease-in duration-300'>
+                <HiOutlineChevronDoubleUp className='text-[#59f0c5]' size={30} />
               </div>
             </a>
           </Link>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

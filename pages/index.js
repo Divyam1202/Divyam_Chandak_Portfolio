@@ -16,7 +16,7 @@ export default function Home() {
       <Head>
         <title>Divyam Chandak</title>
         <meta name="description" content="Portfolio Website of Divyam Chandak." />
-  <link rel="icon" href="/vercel.svg" />
+  <link rel="icon" href="/fav.png" />
       </Head>
     <Main />
     <About />

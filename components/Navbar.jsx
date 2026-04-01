@@ -1,52 +1,42 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import React, { useState, useEffect } from 'react';
-import { AiOutlineClose, AiOutlineMail, AiOutlineMenu } from 'react-icons/ai';
+import React, { useEffect, useState } from 'react';
+import { AiOutlineClose, AiOutlineMail, AiOutlineMenu, AiOutlinePhone } from 'react-icons/ai';
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa';
-import { BsFillPersonLinesFill } from 'react-icons/bs';
-// import { useRouter } from 'next/router';
+
+const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/#Models', label: 'Models' },
+  { href: '/#experience', label: 'Experience' },
+  { href: '/#certifications', label: 'Certifications' },
+  { href: '/#projects', label: 'Projects' },
+  { href: '/#blogs', label: 'Blogs' },
+  { href: '/#contact', label: 'Contact' },
+];
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
   const [shadow, setShadow] = useState(false);
-  const [navBg, setNavBg] = useState('#ecf0f3');
-  const [linkColor, setLinkColor] = useState('#1f2937');
-  // const [position, setPosition] = useState('fixed')
-  // const router = useRouter();
-
-  // useEffect(() => {
-  //   if (
-  //     router.asPath === '/property' ||
-  //     router.asPath === '/crypto' ||
-  //     router.asPath === '/netflix' ||
-  //     router.asPath === '/twitch'
-  //   ) {
-  //     setNavBg('transparent');
-  //     setLinkColor('#ecf0f3');
-  //   } else {
-  //     setNavBg('#ecf0f3');
-  //     setLinkColor('#1f2937');
-  //   }
-  // }, [router]);
-
-  const handleNav = () => {
-    setNav(!nav);
-  };
 
   useEffect(() => {
     const handleShadow = () => {
-      if (window.scrollY >= 90) {
-        setShadow(true);
-      } else {
-        setShadow(false);
-      }
+      setShadow(window.scrollY >= 90);
     };
+
     window.addEventListener('scroll', handleShadow);
+
+    return () => {
+      window.removeEventListener('scroll', handleShadow);
+    };
   }, []);
+
+  const handleNav = () => {
+    setNav((current) => !current);
+  };
 
   return (
     <div
-    style={{backdropFilter: "blur(20px)", background: "rgba(255, 255, 255, 0.88)"}}
+      style={{ backdropFilter: 'blur(20px)', background: 'rgba(255, 255, 255, 0.88)' }}
       className={
         shadow
           ? 'fixed w-full h-20 shadow-lg z-[100] ease-in-out duration-300 border-b border-gray-100'
@@ -55,145 +45,90 @@ const Navbar = () => {
     >
       <div className='flex justify-between items-center w-full h-full px-2 2xl:px-16'>
         <Link href='/'>
-          <a>
+          <a aria-label='Go to homepage'>
             <Image
-              src={'/vercel.svg'}
-              alt='DSC logo'
-              width={100}
-              height={100}
+              src='/fav.png'
+              alt='Divyam Chandak logo'
+              width={48}
+              height={48}
               className='cursor-pointer'
             />
           </a>
         </Link>
+
         <div>
-          <ul style={{ color: "white"}} className='hidden md:flex'>
-            <li className='ml-10 text-sm uppercase hover:border-b'>
-              <Link href='/'>Home</Link>
-            </li>
-            <li className='ml-10 text-sm uppercase hover:border-b'>
-              <Link href='/#Models'>Models</Link>
-            </li>
-            <li className='ml-10 text-sm uppercase hover:border-b'>
-              <Link href='/#experience'>Experience</Link>
-            </li>
-            <li className='ml-10 text-sm uppercase hover:border-b'>
-              <Link href='/#certifications'>Certifications</Link>
-            </li>
-            <li className='ml-10 text-sm uppercase hover:border-b'>
-              <Link href='/#projects'>Projects</Link>
-            </li>
-            <li className='ml-10 text-sm uppercase hover:border-b'>
-              <Link href='/#blogs'>Blogs</Link>
-            </li>
-            <li className='ml-10 text-sm uppercase hover:border-b'>
-              <Link href='/#contact'>Contact</Link>
-            </li>
+          <ul className='hidden md:flex text-gray-800'>
+            {navLinks.map((link) => (
+              <li key={link.href} className='ml-10 text-sm uppercase hover:border-b border-[#ff9100]'>
+                <Link href={link.href}>
+                  <a>{link.label}</a>
+                </Link>
+              </li>
+            ))}
           </ul>
-          {/* Hamburger Icon */}
-          <div
-            style={{ color: `${linkColor}` }}
+
+          <button
+            type='button'
+            aria-label='Open navigation menu'
             onClick={handleNav}
-            className='md:hidden'
+            className='md:hidden bg-transparent shadow-none rounded-none text-gray-800'
           >
             <AiOutlineMenu size={25} />
-          </div>
+          </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      {/* Overlay */}
-      <div
-        className={
-          nav ? 'md:hidden fixed left-0 top-0 w-full h-screen bg-black/70' : ''
-        }
-      >
-        {/* Side Drawer Menu */}
+      <div className={nav ? 'md:hidden fixed left-0 top-0 w-full h-screen bg-black/70' : 'hidden'}>
         <div
           className={
             nav
-              ? ' fixed left-0 top-0 w-[75%] sm:w-[60%] md:w-[45%] h-screen bg-[#ecf0f3] p-10 ease-in duration-500'
+              ? 'fixed left-0 top-0 w-[75%] sm:w-[60%] md:w-[45%] h-screen bg-[#ecf0f3] p-10 ease-in duration-500'
               : 'fixed left-[-100%] top-0 p-10 ease-in duration-500'
           }
         >
           <div>
             <div className='flex w-full items-center justify-between'>
               <Link href='/'>
-                <a>
-                  <Image
-                    src={'/vercel.svg'}
-                    width={50}
-                    height={50}
-                    alt='DSC logo'
-                  />
+                <a aria-label='Go to homepage'>
+                  <Image src='/fav.png' width={40} height={40} alt='Divyam Chandak logo' />
                 </a>
               </Link>
-              <div
+              <button
+                type='button'
+                aria-label='Close navigation menu'
                 onClick={handleNav}
-                className='rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer'
+                className='rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer bg-white text-gray-800'
               >
                 <AiOutlineClose />
-              </div>
+              </button>
             </div>
+
             <div className='border-b border-gray-300 my-4'>
-              <p className='w-[85%] md:w-[90%] py-4'>
-                Developing ML as a Passion
-              </p>
+              <p className='w-[85%] md:w-[90%] py-4'>Developing ML as a passion</p>
             </div>
           </div>
+
           <div className='py-4 flex flex-col'>
-            <ul className='uppercase'>
-              <Link href='/'>
-                <li onClick={() => setNav(false)} className='py-4 text-sm'>
-                  Home
-                </li>
-              </Link>
-              <Link href='/#Models'>
-                <li onClick={() => setNav(false)} className='py-4 text-sm'>
-                  Models
-                </li>
-              </Link>
-              <Link href='/#AINotes'>
-                <li onClick={() => setNav(false)} className='py-4 text-sm'>
-                  Notes
-                </li>
-              </Link>
-              <Link href='/#experience'>
-                <li onClick={() => setNav(false)} className='py-4 text-sm'>
-                  Experience
-                </li>
-              </Link>
-              <Link href='/#certifications'>
-                <li onClick={() => setNav(false)} className='py-4 text-sm'>
-                  Certification
-                </li>
-              </Link>
-              <Link href='/#projects'>
-                <li onClick={() => setNav(false)} className='py-4 text-sm'>
-                  Projects
-                </li>
-              </Link>
-              <Link href='/Blogs'>
-                <li onClick={() => setNav(false)} className='py-4 text-sm'>
-                  Blogs
-                </li>
-              </Link>
-              <Link href='/#contact'>
-                <li onClick={() => setNav(false)} className='py-4 text-sm'>
-                  Contact
-                </li>
-              </Link>
-            </ul>
+            <nav className='uppercase'>
+              {navLinks.map((link) => (
+                <Link key={link.href} href={link.href}>
+                  <a onClick={() => setNav(false)} className='block py-4 text-sm'>
+                    {link.label}
+                  </a>
+                </Link>
+              ))}
+            </nav>
+
             <div className='pt-40'>
-              <p className='uppercase tracking-widest text-[#5651e5]'>
-                Let&#39;s Connect
-              </p>
+              <p className='uppercase tracking-widest text-[#ff9100]'>Let&#39;s Connect</p>
               <div className='flex items-center justify-between my-4 w-full sm:w-[80%]'>
                 <a
                   href='https://www.linkedin.com/in/divyam-chandak/'
                   target='_blank'
                   rel='noreferrer'
+                  aria-label='Open LinkedIn profile'
                 >
-                  <div className='rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300'>
+                  <div className='rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300 bg-white'>
                     <FaLinkedinIn />
                   </div>
                 </a>
@@ -201,27 +136,28 @@ const Navbar = () => {
                   href='https://github.com/Divyam1202'
                   target='_blank'
                   rel='noreferrer'
+                  aria-label='Open GitHub profile'
                 >
-                  <div className='rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300'>
+                  <div className='rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300 bg-white'>
                     <FaGithub />
                   </div>
                 </a>
                 <Link href='/#contact'>
-                  <div
-                    onClick={() => setNav(!nav)}
-                    className='rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300'
+                  <a
+                    onClick={() => setNav(false)}
+                    className='rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300 bg-white'
+                    aria-label='Jump to contact section'
                   >
                     <AiOutlineMail />
-                  </div>
+                  </a>
                 </Link>
-                <Link href='/resume'>
-                  <div
-                    onClick={() => setNav(!nav)}
-                    className='rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300'
-                  >
-                    <BsFillPersonLinesFill />
-                  </div>
-                </Link>
+                <a
+                  href='tel:+919823532281'
+                  className='rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer hover:scale-105 ease-in duration-300 bg-white'
+                  aria-label='Call Divyam Chandak'
+                >
+                  <AiOutlinePhone />
+                </a>
               </div>
             </div>
           </div>

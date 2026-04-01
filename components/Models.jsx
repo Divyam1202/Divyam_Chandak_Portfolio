@@ -26,7 +26,7 @@ const Models = () => {
             <h3 className="p-1 text-xl">Swin Transformer</h3>
             <Image src={image_seg} height="25px" width="25px" alt="/" />
             </div>
-                <p className="p-1 text-sm">Replicate the Swin Transformer architecture for semantic segmentation. The Swin Transformer ("Hierarchical Vision Transformer using Shifted Windows") delivers strong results across computer vision tasks and can be adapted for medical imaging and segmentation.</p>
+                <p className="p-1 text-sm">Replicate the Swin Transformer architecture for semantic segmentation. The Swin Transformer paper, Hierarchical Vision Transformer using Shifted Windows, delivers strong results across computer vision tasks and can be adapted for medical imaging and segmentation.</p>
                 <h4 className="p-1" style={{textAlign: "center",width:"fit-content"}}><a href="https://medium.com/@DSCdev/swin-transformers-for-semantic-segmentation-part-1-bd85bad7e051" target="_blank" rel="noreferrer">Blog<Image src={try_image} height="15px" width="15px" alt="/"/></a></h4>
             </div>
             </div>

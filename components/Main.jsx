@@ -102,20 +102,22 @@ const Main = () => {
     };
 
     init();
-    window.addEventListener('resize', () => {
+    const handleResize = () => {
       stopAnimation();
       // restart to recompute sizes
       setTimeout(startAnimation, 80);
-    });
-    window.addEventListener('load', () => {
+    };
+    const handleLoad = () => {
       stopAnimation();
       setTimeout(startAnimation, 80);
-    });
+    };
+    window.addEventListener('resize', handleResize);
+    window.addEventListener('load', handleLoad);
 
     return () => {
       stopAnimation();
-      window.removeEventListener('resize', startAnimation);
-      window.removeEventListener('load', startAnimation);
+      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('load', handleLoad);
     };
   }, []);
 

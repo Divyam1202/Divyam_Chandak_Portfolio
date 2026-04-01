@@ -1,4 +1,4 @@
-﻿import Image from 'next/image';
+import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState } from 'react';
 import { AiOutlineMail } from 'react-icons/ai';
@@ -19,12 +19,10 @@ const ContactPhone = () => {
       onClick={() => setOpen((v) => !v)}
       className={`flex items-center transition-all duration-300 ease-in-out ${open ? 'w-56 rounded-xl px-3' : 'w-14 rounded-full'} justify-start`}
     >
-      {/* icon container matches other icons when closed */}
-      <div className={`flex items-center justify-center ${open ? 'p-3' : 'p-6'} rounded-full shadow-lg shadow-gray-400 cursor-pointer bg-white text-[#5651e5] hover:scale-110 ease-in duration-300`}> 
+      <div className={`flex items-center justify-center ${open ? 'p-3' : 'p-6'} rounded-full shadow-lg shadow-gray-400 cursor-pointer bg-white text-[#5651e5] hover:scale-110 ease-in duration-300`}>
         <BsFillPersonLinesFill size={20} />
       </div>
 
-      {/* sliding phone text */}
       <div className={`ml-3 overflow-hidden transition-all duration-300 ${open ? 'w-40 opacity-100' : 'w-0 opacity-0'}`}>
         <span className='text-sm select-text text-black'>{phone}</span>
       </div>
@@ -34,23 +32,20 @@ const ContactPhone = () => {
 
 const Contact = () => {
   return (
-    <div id='contact' className='w-full h-full' style={{backgroundColor:"#f5f7fa"}}>
+    <div id='contact' className='w-full h-full' style={{ backgroundColor: '#f5f7fa' }}>
       <div className='max-w-[1240px] m-auto px-2 py-20 w-full '>
-        <p className='text-xl tracking-widest uppercase text-[#ff9100] font-bold'>
-          Get In Touch
-        </p>
+        <p className='text-xl tracking-widest uppercase text-[#ff9100] font-bold'>Get In Touch</p>
         <h2 className='py-4 text-5xl md:text-6xl font-black'>Let&apos;s Connect</h2>
-        <p className='text-gray-600 max-w-2xl mb-12 text-lg'>Have a question or want to collaborate? I'd love to hear from you. Feel free to reach out through any of the channels below.</p>
-        
+        <p className='text-gray-600 max-w-2xl mb-12 text-lg'>Have a question or want to collaborate? I&apos;d love to hear from you. Feel free to reach out through any of the channels below.</p>
+
         <div className='grid lg:grid-cols-5 gap-8'>
-          {/* Profile Card */}
           <div className='lg:col-span-2 bg-white rounded-xl shadow-lg hover:shadow-2xl overflow-hidden border border-gray-100 transition-shadow'>
             <div className='lg:p-4 h-full '>
               <div>
                 <Image
                   className='rounded-xl hover:scale-105 ease-in duration-300'
                   src={ContactImg}
-                  alt='/'
+                  alt='Divyam Chandak contact profile'
                 />
               </div>
               <div>
@@ -67,6 +62,7 @@ const Contact = () => {
                     href='https://www.linkedin.com/in/divyam-chandak/'
                     target='_blank'
                     rel='noreferrer'
+                    aria-label='Open LinkedIn profile'
                   >
                     <div className='rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300'>
                       <FaLinkedinIn />
@@ -76,6 +72,7 @@ const Contact = () => {
                     href='https://github.com/Divyam1202'
                     target='_blank'
                     rel='noreferrer'
+                    aria-label='Open GitHub profile'
                   >
                     <div className='rounded-full shadow-lg shadow-gray-400 p-6 cursor-pointer hover:scale-110 ease-in duration-300'>
                       <FaGithub />
@@ -86,16 +83,13 @@ const Contact = () => {
                     href='mailto:chandakdivyam@gmail.com'
                     target='_blank'
                     rel='noreferrer'
+                    aria-label='Send an email'
                     onClick={(e) => {
-                      // open Gmail compose in a new tab when possible; fall back to mailto
-                      try {
+                      const gmailUrl = 'https://mail.google.com/mail/?view=cm&fs=1&to=chandakdivyam@gmail.com';
+                      const popup = window.open(gmailUrl, '_blank', 'noopener,noreferrer');
+
+                      if (popup) {
                         e.preventDefault();
-                        const gmailUrl = 'https://mail.google.com/mail/?view=cm&fs=1&to=chandakdivyam@gmail.com';
-                        // open Gmail compose in a new tab/window
-                        window.open(gmailUrl, '_blank', 'noopener,noreferrer');
-                      } catch (err) {
-                        // if anything goes wrong, allow the mailto link to act as fallback
-                        // (no-op here — default href will be followed because we didn't prevent it)
                       }
                     }}
                   >
@@ -103,7 +97,6 @@ const Contact = () => {
                       <AiOutlineMail />
                     </div>
                   </a>
-                  {/* contact icon: expands into a rounded pill to reveal phone number */}
                   <ContactPhone />
                 </div>
               </div>
@@ -112,12 +105,9 @@ const Contact = () => {
         </div>
         <div className='flex justify-center py-12'>
           <Link href='/'>
-            <a>
+            <a aria-label='Back to top'>
               <div className='rounded-full shadow-lg shadow-gray-400 p-4 cursor-pointer hover:scale-110 ease-in duration-300'>
-                <HiOutlineChevronDoubleUp
-                  className='text-[#5651e5]'
-                  size={30}
-                />
+                <HiOutlineChevronDoubleUp className='text-[#5651e5]' size={30} />
               </div>
             </a>
           </Link>
@@ -128,5 +118,3 @@ const Contact = () => {
 };
 
 export default Contact;
-
-
